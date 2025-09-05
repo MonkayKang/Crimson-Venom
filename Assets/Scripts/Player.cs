@@ -109,12 +109,13 @@ public class Player : MonoBehaviour
                 speed = 2.5f;
                 transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z); // Height becomes 0.5
             }
-            else // Pressed again
-            {
-                // Stand up
-                speed = 5f;
-                transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
-            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl)) // If let go of Ctrl
+        {
+            // Stand up
+            speed = 5f;
+            transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
         }
     }
 

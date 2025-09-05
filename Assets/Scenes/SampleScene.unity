@@ -3622,7 +3622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemFlashlight: {fileID: 747708342}
   speed: 5
-  jumpForce: 5
+  jumpForce: 1
   gravity: -9.81
   mouseSensitivity: 5
   cameraTransform: {fileID: 963194228}
