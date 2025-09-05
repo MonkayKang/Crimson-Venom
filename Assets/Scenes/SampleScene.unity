@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 366417140}
   - component: {fileID: 366417139}
   - component: {fileID: 366417138}
+  - component: {fileID: 366417141}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -1024,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366417136}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.92387867, z: -0, w: 0.38268548}
+  m_LocalRotation: {x: 0, y: -0.9238787, z: 0, w: 0.3826856}
   m_LocalPosition: {x: 7.31, y: 7.2889, z: 29.603}
   m_LocalScale: {x: 2, y: 2.397761, z: 0.31977}
   m_ConstrainProportionsScale: 0
@@ -1102,6 +1103,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366417136}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &366417141
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366417136}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d493af50c738b3545adb1996b9b5c1ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &395947768
 GameObject:
   m_ObjectHideFlags: 0

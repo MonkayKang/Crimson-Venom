@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private float originalHeight;
     public float crouchHeight = 0.5f;
 
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
