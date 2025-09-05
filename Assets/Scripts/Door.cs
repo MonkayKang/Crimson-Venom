@@ -5,14 +5,25 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public Animator targetAnimator;
-    public string boolName = "isOn"; // the name of the bool in the Animator
+    public string boolName = "isOpen"; // the name of the bool in the Animator
+    private bool open = true;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Set the bool to false
-            targetAnimator.SetBool(boolName, false);
+            if (open)
+            {
+                // Close door
+                targetAnimator.SetBool(boolName, false);
+                open = false;
+            }
+            else
+            {
+                // Open door
+                targetAnimator.SetBool(boolName, true);
+                open = true;
+            }
         }
     }
 }
