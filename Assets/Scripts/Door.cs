@@ -7,10 +7,11 @@ public class Door : MonoBehaviour
     public Animator targetAnimator;
     public string boolName = "isOpen"; // the name of the bool in the Animator
     private bool open = true;
+    private bool playerNear;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && playerNear)
         {
             if (open)
             {
@@ -24,6 +25,22 @@ public class Door : MonoBehaviour
                 targetAnimator.SetBool(boolName, true);
                 open = true;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("player"))
+        {
+            playerNear = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("player"))
+        {
+            playerNear = false;
         }
     }
 }
