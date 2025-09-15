@@ -17,7 +17,7 @@ public class Toggle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("player"))
+        if (other.gameObject.CompareTag("player") && text1 != null && text2 != null) // Make sure its reusable without having to use this part
         {
             text1.enabled = true;
             text2.enabled = true;
@@ -26,7 +26,7 @@ public class Toggle : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("player"))
+        if (other.gameObject.CompareTag("player") && text1 != null && text2 != null) // Make sure its reusable without having to use this part
         {
             text1.enabled = false;
             text2.enabled = false;
