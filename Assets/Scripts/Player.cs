@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
     // Game objects
     private GameObject Flashlight; // The world pickup
+    private GameObject Dart; // Ballon Pop
     public GameObject ItemFlashlight; // The one the player holds 
+    public GameObject ItemDart; // The throwing Dart
 
     // Movement settings
     public float speed = 5f;
@@ -26,10 +28,13 @@ public class Player : MonoBehaviour
     private bool nearFlashlight = false;
     private bool hasFlashlight = false;
     private bool isOn = false;
+    private bool hasDart = false;
+    private bool nearDart = false;
 
     // Float
     private float originalHeight;
     public float crouchHeight = 0.5f;
+    public float throwForce = 15f; // How far will the projectile go (inerthia)
 
 
     void Start()
@@ -94,11 +99,23 @@ public class Player : MonoBehaviour
             Pickup();
         }
 
+        if (nearDart)
+        {
+            Pickup();
+        }
+
         // Toggle flashlight
         if (hasFlashlight && Input.GetKeyDown(KeyCode.F)) // When Press "F"
         {
             isOn = !isOn; // Toggle Bool to see if the light is on our off
             ItemFlashlight.SetActive(isOn); // Set the object ON or OFF
+        }
+
+
+        // Throw Dart
+        if (hasDart && Input.GetKeyDown(KeyCode.Mouse0)) // Left click
+        {
+            Throw();
         }
 
         // Crouch
@@ -127,6 +144,12 @@ public class Player : MonoBehaviour
             nearFlashlight = true; // Bool that tells the player that they can pickup the item
             Flashlight = other.gameObject; // "Paint the Target"
         }
+
+        if (other.CompareTag("Projectile"))
+        {
+            Dart = other.gameObject; // "Paint the target"
+            nearDart = true;
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -139,6 +162,15 @@ public class Player : MonoBehaviour
                 nearFlashlight = false; // Outside the range
             }
         }
+
+        if (other.CompareTag("Projectile"))
+        {
+            if (Dart == other.gameObject)
+            {
+                Dart = null; // "Remove the Paint"
+                nearDart = false;
+            }
+        }
     }
 
     public void Pickup()
@@ -149,6 +181,27 @@ public class Player : MonoBehaviour
             Destroy(Flashlight); // Remove the pickup from the world
             Flashlight = null; // Flashlight (Paint) is gone
             nearFlashlight = false; // No longer near the flashlight (Its gone)
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && Dart != null)
+        {
+            hasDart = true; // Player has Dart
+            Destroy(Dart); // Remove the pickup from the world
+            Dart = null; // Dart (Paint) is gone
+            nearDart = false; // No longer near the flashlight (Its gone)
+        }
+    }
+
+    public void Throw()
+    {
+        // Spawn dart slightly in front of camera
+        GameObject dart = Instantiate(ItemDart, cameraTransform.position + cameraTransform.forward * 0.5f, cameraTransform.rotation);
+
+        // Add force forward
+        Rigidbody rb = dart.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.AddForce(cameraTransform.forward * throwForce, ForceMode.VelocityChange);
         }
     }
 }
