@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Dart : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float lifeTime = 3f; // how long before the dart decays;
+
     void Start()
     {
-        
+        StartCoroutine(Decay());
     }
 
-    // Update is called once per frame
-    void Update()
+
+    IEnumerator Decay()
     {
-        
+        yield return new WaitForSeconds(lifeTime);
+        Destroy(gameObject);
     }
 }

@@ -21,7 +21,7 @@ public class Ballon : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile")) // if a dart hits it
         {
             Destroy(collision.gameObject); // Destroy the dart
-            Destroy(gameObject); // destroy itself
+            Destroy(gameObject); // Destroy itself
         }
     }
 }
