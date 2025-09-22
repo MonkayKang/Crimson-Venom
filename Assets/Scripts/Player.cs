@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Player : MonoBehaviour
     private GameObject Dart; // Ballon Pop
     public GameObject ItemFlashlight; // The one the player holds 
     public GameObject ItemDart; // The throwing Dart
+
+    //UI
+    public Image flashlightUI;          // What UI Image Will Change
+    public Sprite flashlightOffSprite;  // Sprite when flashlight is off
+    public Sprite flashlightOnSprite;   // Sprite when flashlight is on
 
     // Movement settings
     public float speed = 5f;
@@ -109,6 +115,12 @@ public class Player : MonoBehaviour
         {
             isOn = !isOn; // Toggle Bool to see if the light is on our off
             ItemFlashlight.SetActive(isOn); // Set the object ON or OFF
+            flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite; // Checks bool if "isON". The colon (:) mean if its true do this (left) and if its false do this (right).
+        }
+
+        if (hasFlashlight)
+        {
+            flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite;
         }
 
 

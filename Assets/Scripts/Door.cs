@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class Door : MonoBehaviour
     public string boolName = "isOpen"; // the name of the bool in the Animator
     private bool open = true;
     private bool playerNear;
+
+    //Detection UI
+    public Image Detection;
+    public Sprite closedEYE;
+    public Sprite openEYE;
 
     void Update()
     {
@@ -36,11 +42,13 @@ public class Door : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("player"))
         {
             playerNear = false;
+
         }
     }
 }
