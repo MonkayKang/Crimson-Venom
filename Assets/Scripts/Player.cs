@@ -11,6 +11,12 @@ public class Player : MonoBehaviour
     public GameObject ItemFlashlight; // The one the player holds 
     public GameObject ItemDart; // The throwing Dart
 
+    // Audio
+    public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
+    public AudioClip clip3;
+
     //UI
     public Image flashlightUI;          // What UI Image Will Change
     public Sprite flashlightOffSprite;  // Sprite when flashlight is off
@@ -116,11 +122,14 @@ public class Player : MonoBehaviour
             isOn = !isOn; // Toggle Bool to see if the light is on our off
             ItemFlashlight.SetActive(isOn); // Set the object ON or OFF
             flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite; // Checks bool if "isON". The colon (:) mean if its true do this (left) and if its false do this (right).
-        }
-
-        if (hasFlashlight)
-        {
-            flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite;
+            if (isOn)
+            {
+                source.PlayOneShot(clip1); // Audio on
+            }
+            if (!isOn)
+            {
+                source.PlayOneShot(clip2); // Audio off
+            }
         }
 
 
@@ -189,6 +198,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && Flashlight != null)
         {
+            source.PlayOneShot(clip3);
             hasFlashlight = true; // Player has Flashlight
             Destroy(Flashlight); // Remove the pickup from the world
             Flashlight = null; // Flashlight (Paint) is gone
