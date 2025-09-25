@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Toggle : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class Toggle : MonoBehaviour
     public TextMeshProUGUI text2;
 
     public bool isCollectable = false;
+    public bool isEnd = false;
     private bool hasBeenCollected = false;
     private bool playerInRange;
+
 
     // Audio
     public AudioSource source;
@@ -43,6 +46,12 @@ public class Toggle : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
+
+            if (isEnd)
+            {
+                SceneManager.LoadScene("Win");
+            }
+
             if (isCollectable)
             {
                 playerInRange = true;
