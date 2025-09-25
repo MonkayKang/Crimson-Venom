@@ -10,6 +10,7 @@ public class UICounter : MonoBehaviour
     public static int miniSCORE1;
     public static int collectablesCount;
 
+    public GameObject obj;
     public static bool animStart = false;
 
     private bool isCoroutineRunning = false; // prevent multiple coroutines
@@ -29,6 +30,11 @@ public class UICounter : MonoBehaviour
         if (animStart && !isCoroutineRunning)
         {
             StartCoroutine(CollectableUI());
+        }
+
+        if (miniSCORE1 >= 15)
+        {
+            Destroy(gameObject);
         }
     }
 
