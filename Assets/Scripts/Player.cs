@@ -203,6 +203,7 @@ public class Player : MonoBehaviour
             Destroy(Flashlight); // Remove the pickup from the world
             Flashlight = null; // Flashlight (Paint) is gone
             nearFlashlight = false; // No longer near the flashlight (Its gone)
+            UICounter.taskCounter++; // New Task
         }
 
         if (Input.GetKeyDown(KeyCode.E) && Dart != null)

@@ -12,6 +12,7 @@ public class Generator : MonoBehaviour
     {
         if (nearPlayer && Input.GetKeyDown(KeyCode.E))
         {
+            UICounter.taskCounter++; // Add a new task
             for (int i = 0; i < objects.Length; i++) // For every object in that
             {
                 if (objects[i] != null)
