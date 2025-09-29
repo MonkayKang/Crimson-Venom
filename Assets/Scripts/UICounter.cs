@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class UICounter : MonoBehaviour
 {
+    public static int numCollect = 0; // Number of collectables on map
+    public static bool collectedALL = false;
+
+
+
     public TextMeshProUGUI SCOREtext1; // First Minigame text
     public TextMeshProUGUI collectableUI;
     public TextMeshProUGUI TaskUI;
 
     private string words;
     public static int miniSCORE1;
-    public static int collectablesCount;
+    public static int collectablesCount;  // Total of collectables collected
 
     public GameObject[] obj;
     public static bool animStart = false;
@@ -24,7 +29,6 @@ public class UICounter : MonoBehaviour
     private bool task3On = false; // Final task, ADJUST FOR FUTURE TASK
 
     private bool isCoroutineRunning = false; // prevent multiple coroutines
-
 
     void Start()
     {
@@ -39,6 +43,11 @@ public class UICounter : MonoBehaviour
 
     void Update()
     {
+        if (collectablesCount >= numCollect)
+        {
+            collectedALL = true; // All collectables collected
+        }
+
         SCOREtext1.text = "Score: " + miniSCORE1.ToString();
         collectableUI.text = "Items Collected: " + collectablesCount.ToString();
 

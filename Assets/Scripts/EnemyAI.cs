@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    public bool isChaser = false;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>(); // Find component
@@ -33,35 +36,44 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
-
-        if (currentState == AIState.Patrol && canSeePlayer) // If the state is in Patrol but can see the player
+        if (isChaser) // The final chase
         {
-            currentState = AIState.Chase; // Chase the player
-        }
-        else if (currentState == AIState.Chase && !canSeePlayer) // If the state is in chase, but cant see the player
-        {
-            currentState = AIState.Search; // Go to search state
-            lastKnownPosition = player.position; // Save the last known position
-            agent.SetDestination(lastKnownPosition); // Head to that position
-            searchTimer = 0f; // Reset the search timer
-        }
-        else if (currentState == AIState.Search && canSeePlayer) // If searching and player comes back in view
-        {
-            currentState = AIState.Chase; // Resume chase
+            Chase(); // Will always follow the player
         }
 
-        if (currentState == AIState.Patrol) // If state patrol
+
+        if (!isChaser) // The roaming one
         {
-            Patrol(); // Do this
-        }
-        else if (currentState == AIState.Chase) // if state chase
-        {
-            Chase(); // Do this
-        }
-        else if (currentState == AIState.Search) // If state search
-        {
-            Search(); // Do this
+            bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
+
+            if (currentState == AIState.Patrol && canSeePlayer) // If the state is in Patrol but can see the player
+            {
+                currentState = AIState.Chase; // Chase the player
+            }
+            else if (currentState == AIState.Chase && !canSeePlayer) // If the state is in chase, but cant see the player
+            {
+                currentState = AIState.Search; // Go to search state
+                lastKnownPosition = player.position; // Save the last known position
+                agent.SetDestination(lastKnownPosition); // Head to that position
+                searchTimer = 0f; // Reset the search timer
+            }
+            else if (currentState == AIState.Search && canSeePlayer) // If searching and player comes back in view
+            {
+                currentState = AIState.Chase; // Resume chase
+            }
+
+            if (currentState == AIState.Patrol) // If state patrol
+            {
+                Patrol(); // Do this
+            }
+            else if (currentState == AIState.Chase) // if state chase
+            {
+                Chase(); // Do this
+            }
+            else if (currentState == AIState.Search) // If state search
+            {
+                Search(); // Do this
+            }
         }
     }
 
@@ -126,5 +138,13 @@ public class EnemyAI : MonoBehaviour
         }
 
         return false; // Player is not visible
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 }

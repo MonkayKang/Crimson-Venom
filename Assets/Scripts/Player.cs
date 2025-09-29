@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -225,6 +226,13 @@ public class Player : MonoBehaviour
         if (rb != null)
         {
             rb.AddForce(cameraTransform.forward * throwForce, ForceMode.VelocityChange);
+        }
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit) // If hits the enemy
+    {
+        if (hit.gameObject.CompareTag("Damage"))
+        {
+            SceneManager.LoadScene("Lose");
         }
     }
 }

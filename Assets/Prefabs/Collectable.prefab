@@ -126,7 +126,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -185,6 +185,9 @@ MonoBehaviour:
   text1: {fileID: 0}
   text2: {fileID: 0}
   isCollectable: 1
+  isEnd: 0
+  source: {fileID: 0}
+  clip1: {fileID: 0}
 --- !u!54 &1340833696301015337
 Rigidbody:
   m_ObjectHideFlags: 0

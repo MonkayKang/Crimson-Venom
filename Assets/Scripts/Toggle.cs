@@ -23,6 +23,10 @@ public class Toggle : MonoBehaviour
 
     void Start()
     {
+        if (isCollectable)
+        {
+            UICounter.numCollect += 1; // How many are on the map
+        }
         if (text1 != null) // Prevents Null reference
         {
             text1.enabled = false;
@@ -38,7 +42,7 @@ public class Toggle : MonoBehaviour
             hasBeenCollected = true;
             UICounter.collectablesCount += 1;
             UICounter.animStart = true;
-            Destroy(gameObject);
+            StartCoroutine(Wait()); // Wait before destroy
         }
     }
 
@@ -47,9 +51,14 @@ public class Toggle : MonoBehaviour
         if (other.CompareTag("player"))
         {
 
-            if (isEnd)
+            if (isEnd && (UICounter.collectedALL)) // If you collected all the pieces
             {
-                SceneManager.LoadScene("Win");
+                SceneManager.LoadScene("Win"); 
+            }
+
+            if (isEnd && (!UICounter.collectedALL)) // If you didn't
+            {
+                SceneManager.LoadScene("Win(Bad)");
             }
 
             if (isCollectable)
@@ -77,5 +86,11 @@ public class Toggle : MonoBehaviour
             text1.enabled = false;
             text2.enabled = false;
         }
+    }
+
+    private IEnumerator Wait() // Script Fighting
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
     }
 }
