@@ -79,6 +79,7 @@ public class EnemyAI : MonoBehaviour
 
     void Patrol()
     {
+        SecAI.playerSpotted = false;
         if (!agent.pathPending && agent.remainingDistance < 0.5f) // If path is not pending and the remaining distance to the waypoint is below a threshold
         {
             GoToNextWaypoint(); // go to next waypoint
@@ -87,12 +88,14 @@ public class EnemyAI : MonoBehaviour
 
     void Chase()
     {
+        SecAI.playerSpotted = true;
         agent.SetDestination(player.position); // Go towards player
         lastKnownPosition = player.position; // Update last known position constantly while chasing
     }
 
     void Search()
     {
+        SecAI.playerSpotted = false;
         // Wait at last known position for a set time
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {

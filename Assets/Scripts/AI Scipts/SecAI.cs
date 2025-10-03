@@ -1,0 +1,135 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class SecAI : MonoBehaviour
+{
+    public enum AIState { Patrol, Chase, Search } // Added Search State
+    public AIState currentState = AIState.Patrol;
+
+    // Patrol
+    public Transform[] waypoints; // Places it Will go to
+    private int currentIndex = 0; // Waypoint "1" is it's first stop
+
+    // Chase
+    public Transform player; // The player's position
+    public float viewRange = 10f;       // How far enemy can see
+    public float viewAngle = 120f;      // Degree of Vision Cone
+
+    // Search
+    private Vector3 lastKnownPosition; // Store last known player position
+    public float searchDuration = 3f;  // How long enemy waits at last known position
+    private float searchTimer = 0f;    // Internal timer for search
+
+    private NavMeshAgent agent;
+
+    public static bool playerSpotted;
+
+    void Start()
+    {
+        playerSpotted = false;
+        agent = GetComponent<NavMeshAgent>(); // Find component
+        if (waypoints.Length > 0)
+            agent.SetDestination(waypoints[currentIndex].position); // Go towards first waypoint
+    }
+
+    void Update()
+    {
+
+            bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
+
+        if (currentState == AIState.Patrol && (canSeePlayer || playerSpotted))
+        {
+            currentState = AIState.Chase; // Chase the player
+        }
+        else if (currentState == AIState.Chase && (!canSeePlayer && !playerSpotted))
+        {
+            currentState = AIState.Search; // Go to search state
+            lastKnownPosition = player.position; // Save the last known position
+            agent.SetDestination(lastKnownPosition); // Head to that position
+            searchTimer = 0f; // Reset the search timer
+        }
+        else if (currentState == AIState.Search && canSeePlayer) // If searching and player comes back in view
+        {
+                currentState = AIState.Chase; // Resume chase
+        }
+
+            if (currentState == AIState.Patrol) // If state patrol
+            {
+                Patrol(); // Do this
+            }
+            else if (currentState == AIState.Chase) // if state chase
+            {
+                Chase(); // Do this
+            }
+            else if (currentState == AIState.Search) // If state search
+            {
+                Search(); // Do this
+            }
+        
+    }
+
+    void Patrol()
+    {
+        if (!agent.pathPending && agent.remainingDistance < 0.5f) // If path is not pending and the remaining distance to the waypoint is below a threshold
+        {
+            GoToNextWaypoint(); // go to next waypoint
+        }
+    }
+
+    void Chase()
+    {
+        agent.SetDestination(player.position); // Go towards player
+        lastKnownPosition = player.position; // Update last known position constantly while chasing
+    }
+
+    void Search()
+    {
+        // Wait at last known position for a set time
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            searchTimer += Time.deltaTime; // Count how long enemy has been waiting
+
+            transform.Rotate(Vector3.up * 120f * Time.deltaTime); // Rotates and looks for player
+
+            if (searchTimer >= searchDuration) // If it searched long enough
+            {
+                currentState = AIState.Patrol; // Return to patrol
+                GoToNextWaypoint(); // Resume patrolling
+            }
+        }
+    }
+
+    void GoToNextWaypoint()
+    {
+        if (waypoints.Length == 0) return; // If waypoint is Null
+
+        agent.SetDestination(waypoints[currentIndex].position);  // Move towards the waypoint Index
+        currentIndex = (currentIndex + 1) % waypoints.Length; // When met, go to next index in the list (Plus 1)
+    }
+
+    bool CanSeePlayer() // Condition if it can see the player
+    {
+        Vector3 dirToPlayer = player.position - transform.position; // Calculate the direction from player to AI
+        float distanceToPlayer = dirToPlayer.magnitude; // Calculate the distance from us (AI) to the player
+
+        // Check distance
+        if (distanceToPlayer > viewRange) return false; // If the distance from the player is greater than the view range set, it cannot see them
+
+        // Check angle
+        float angle = Vector3.Angle(transform.forward, dirToPlayer.normalized); // Set the angle
+        if (angle > viewAngle / 2f) return false; // If the angle is greater than the set angle
+
+        // Check raycast (line of sight)
+        if (Physics.Raycast(transform.position + Vector3.up, dirToPlayer.normalized, out RaycastHit hit, viewRange)) // Use the direction to player and the view angle
+        {
+            if (hit.collider.CompareTag("player"))
+            {
+                return true; // Player is visible
+            }
+        }
+
+        return false; // Player is not visible
+    }
+}
