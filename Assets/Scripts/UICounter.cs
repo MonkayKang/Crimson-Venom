@@ -75,6 +75,7 @@ public class UICounter : MonoBehaviour
 
         if (taskCounter >= 1 && !task1On)
         {
+            StopAllCoroutines();
             TaskUI.enabled = false; // Turn off the current task
             words = "Task: Find and Cut the Ropes (RED AND YELLOW)"; // New task is assigned
             StartCoroutine(Task());
@@ -83,6 +84,7 @@ public class UICounter : MonoBehaviour
 
         if (taskCounter >= 2 && !task2On)
         {
+            StopAllCoroutines();
             TaskUI.enabled = false; // Turn off the current task
             words = "Task: They are now free....    Complete 'Balloon POP'"; // New task is assigned
             StartCoroutine(Task());
@@ -91,6 +93,7 @@ public class UICounter : MonoBehaviour
 
         if (taskCounter >= 3 && !task3On)
         {
+            StopAllCoroutines();
             TaskUI.enabled = false; // Turn off the current task
             words = "Task: ESCAPE!"; // New task is assigned
             StartCoroutine(Task());

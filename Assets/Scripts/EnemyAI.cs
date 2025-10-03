@@ -140,11 +140,4 @@ public class EnemyAI : MonoBehaviour
         return false; // Player is not visible
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("player"))
-        {
-            SceneManager.LoadScene("Lose");
-        }
-    }
 }
