@@ -22,6 +22,10 @@ public class SecAI : MonoBehaviour
     public float searchDuration = 3f;  // How long enemy waits at last known position
     private float searchTimer = 0f;    // Internal timer for search
 
+    // Floats
+    public float patrolSP = 3.5f; // Original Speed
+    public float chaseSP = 7f; // Chase Speed;
+
     private NavMeshAgent agent;
 
     public static bool playerSpotted;
@@ -74,12 +78,14 @@ public class SecAI : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f) // If path is not pending and the remaining distance to the waypoint is below a threshold
         {
+            agent.speed = patrolSP; // Patrol Speed
             GoToNextWaypoint(); // go to next waypoint
         }
     }
 
     void Chase()
     {
+        agent.speed = chaseSP; // Chase Speed
         agent.SetDestination(player.position); // Go towards player
         lastKnownPosition = player.position; // Update last known position constantly while chasing
     }

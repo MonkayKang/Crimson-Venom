@@ -161,6 +161,11 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Damage")) // Just in case character Controller doesnt register hits head on
+        {
+            SceneManager.LoadScene("Lose"); 
+        }
+
         if (other.CompareTag("Flashlight"))
         {
             nearFlashlight = true; // Bool that tells the player that they can pickup the item
@@ -230,6 +235,7 @@ public class Player : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit) // If hits the enemy
     {
+
         if (hit.gameObject.CompareTag("Damage"))
         {
             SceneManager.LoadScene("Lose");

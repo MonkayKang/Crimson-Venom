@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    public GameObject[] objects;
+    public GameObject[] objects; // Objects that will be removed
+    public GameObject Antagonist1; // Objects that will be spawned
+    public GameObject Antagonist2; //
+
+
     private bool nearPlayer = false;
 
     // Update is called once per frame
@@ -21,6 +25,9 @@ public class Generator : MonoBehaviour
                     objects[i] = null; // clears the reference
                 }
             }
+
+            Antagonist1.SetActive(true);
+            Antagonist2.SetActive(true);
         }
     }
 
