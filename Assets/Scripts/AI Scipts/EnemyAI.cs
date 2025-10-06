@@ -113,10 +113,16 @@ public class EnemyAI : MonoBehaviour
 
     void GoToNextWaypoint()
     {
-        if (waypoints.Length == 0) return; // If waypoint is Null
+        int nextIndex; // the number that would be next
 
-        agent.SetDestination(waypoints[currentIndex].position);  // Move towards the waypoint Index
-        currentIndex = (currentIndex + 1) % waypoints.Length; // When met, go to next index in the list (Plus 1)
+        do
+        {
+            nextIndex = Random.Range(0, waypoints.Length); // Pick a random waypoint
+        }
+        while (nextIndex == currentIndex && waypoints.Length > 1); // Avoid picking the same one twice in a row
+
+        currentIndex = nextIndex; // The new waypoint is the random one
+        agent.SetDestination(waypoints[currentIndex].position); // "SET SAIL MATEY'S!"
     }
 
     bool CanSeePlayer() // Condition if it can see the player
