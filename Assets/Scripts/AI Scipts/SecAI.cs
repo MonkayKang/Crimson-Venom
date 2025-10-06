@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class SecAI : MonoBehaviour
 {
-    public enum AIState { Patrol, Chase, Search } // Added Search State
+    public enum AIState { Patrol, Chase } // Added Search State
     public AIState currentState = AIState.Patrol;
 
     // Patrol
@@ -19,12 +19,10 @@ public class SecAI : MonoBehaviour
 
     // Search
     private Vector3 lastKnownPosition; // Store last known player position
-    public float searchDuration = 3f;  // How long enemy waits at last known position
-    private float searchTimer = 0f;    // Internal timer for search
 
     // Floats
     public float patrolSP = 3.5f; // Original Speed
-    public float chaseSP = 7f; // Chase Speed;
+    public float MaxSP = 20f; // Chase Speed;
 
     private NavMeshAgent agent;
 
@@ -49,14 +47,7 @@ public class SecAI : MonoBehaviour
         }
         else if (currentState == AIState.Chase && (!canSeePlayer && !playerSpotted))
         {
-            currentState = AIState.Search; // Go to search state
-            lastKnownPosition = player.position; // Save the last known position
-            agent.SetDestination(lastKnownPosition); // Head to that position
-            searchTimer = 0f; // Reset the search timer
-        }
-        else if (currentState == AIState.Search && canSeePlayer) // If searching and player comes back in view
-        {
-                currentState = AIState.Chase; // Resume chase
+            StartCoroutine(CoyoteTime()); // Give it a sec to break chase
         }
 
             if (currentState == AIState.Patrol) // If state patrol
@@ -66,10 +57,6 @@ public class SecAI : MonoBehaviour
             else if (currentState == AIState.Chase) // if state chase
             {
                 Chase(); // Do this
-            }
-            else if (currentState == AIState.Search) // If state search
-            {
-                Search(); // Do this
             }
         
     }
@@ -85,27 +72,11 @@ public class SecAI : MonoBehaviour
 
     void Chase()
     {
-        agent.speed = chaseSP; // Chase Speed
+        agent.speed = MaxSP; // Chase Speed
         agent.SetDestination(player.position); // Go towards player
         lastKnownPosition = player.position; // Update last known position constantly while chasing
     }
 
-    void Search()
-    {
-        // Wait at last known position for a set time
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-        {
-            searchTimer += Time.deltaTime; // Count how long enemy has been waiting
-
-            transform.Rotate(Vector3.up * 120f * Time.deltaTime); // Rotates and looks for player
-
-            if (searchTimer >= searchDuration) // If it searched long enough
-            {
-                currentState = AIState.Patrol; // Return to patrol
-                GoToNextWaypoint(); // Resume patrolling
-            }
-        }
-    }
 
     void GoToNextWaypoint()
     {
@@ -137,5 +108,16 @@ public class SecAI : MonoBehaviour
         }
 
         return false; // Player is not visible
+    }
+
+    IEnumerator CoyoteTime()
+    {
+        bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
+        currentState = AIState.Chase;
+        yield return new WaitForSeconds(4f); // Wait 4 sec
+        if (currentState == AIState.Chase && (!canSeePlayer && !playerSpotted)) // If they still cant see the player
+        {
+            currentState = AIState.Patrol; // Break off the chase
+        }
     }
 }

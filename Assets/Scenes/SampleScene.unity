@@ -1506,7 +1506,8 @@ GameObject:
   - component: {fileID: 64443841}
   - component: {fileID: 64443844}
   - component: {fileID: 64443843}
-  m_Layer: 0
+  - component: {fileID: 64443845}
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Damage
   m_Icon: {fileID: 0}
@@ -1578,6 +1579,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64443840}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &64443845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64443840}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.00000047683716, z: 0.0000038146973}
 --- !u!1 &73958108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8095,6 +8117,7 @@ GameObject:
   - component: {fileID: 357874495}
   - component: {fileID: 357874500}
   - component: {fileID: 357874501}
+  - component: {fileID: 357874502}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Damage
@@ -8404,6 +8427,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &357874502
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357874493}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &358367234
 GameObject:
   m_ObjectHideFlags: 0
@@ -11170,13 +11216,13 @@ GameObject:
   - component: {fileID: 474058707}
   - component: {fileID: 474058711}
   - component: {fileID: 474058712}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AITest
   m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &474058706
 Transform:
   m_ObjectHideFlags: 0
@@ -11202,16 +11248,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 474058705}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 1
+  avoidancePriority: 99
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.1
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -11334,7 +11380,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -15630,7 +15676,6 @@ GameObject:
   - component: {fileID: 610331774}
   - component: {fileID: 610331777}
   - component: {fileID: 610331776}
-  - component: {fileID: 610331775}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -15653,27 +15698,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 357874494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &610331775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610331773}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &610331776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49076,6 +49100,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5097121876523862023, guid: 80449470d9b98c140a809e77cc379687, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3615685
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097121876523862023, guid: 80449470d9b98c140a809e77cc379687, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.928466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097121876523862023, guid: 80449470d9b98c140a809e77cc379687, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5352
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097121876523862023, guid: 80449470d9b98c140a809e77cc379687, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4457
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097121876523862023, guid: 80449470d9b98c140a809e77cc379687, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.38
+      objectReference: {fileID: 0}
     - target: {fileID: 6126956140514170840, guid: 80449470d9b98c140a809e77cc379687, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.887901
@@ -51262,7 +51306,7 @@ MonoBehaviour:
   flashlightUI: {fileID: 1076391952}
   flashlightOffSprite: {fileID: 21300000, guid: ab9c1dc53d3d4234a858882cc1778f77, type: 3}
   flashlightOnSprite: {fileID: 21300000, guid: 9989827eacea62640aacfe61f6e1cc56, type: 3}
-  speed: 5
+  speed: 3
   jumpForce: 1
   gravity: -9.81
   mouseSensitivity: 5
@@ -51856,13 +51900,13 @@ GameObject:
   - component: {fileID: 1960368685}
   - component: {fileID: 1960368689}
   - component: {fileID: 1960368690}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AITest (1)
   m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1960368683
 Transform:
   m_ObjectHideFlags: 0
@@ -51888,16 +51932,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 1960368682}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 1
-  m_AngularSpeed: 30000
+  avoidancePriority: 99
+  m_AngularSpeed: 720
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.1
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -51988,14 +52032,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   waypoints:
-  - {fileID: 176171653}
   - {fileID: 782039440}
+  - {fileID: 1685951798}
+  - {fileID: 322588685}
+  - {fileID: 1971316771}
+  - {fileID: 1687879382}
+  - {fileID: 1992536432}
+  - {fileID: 2033557338}
+  - {fileID: 844492023}
+  - {fileID: 1858690615}
+  - {fileID: 543522436}
+  - {fileID: 819551422}
+  - {fileID: 509373008}
+  - {fileID: 1869053536}
+  - {fileID: 176171653}
   player: {fileID: 1937319241}
-  viewRange: 10
-  viewAngle: 120
-  searchDuration: 3
+  viewRange: 5
+  viewAngle: 90
   patrolSP: 3.5
-  chaseSP: 20
+  MaxSP: 7
 --- !u!136 &1960368690
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -52009,7 +52064,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -52635,7 +52690,8 @@ GameObject:
   - component: {fileID: 1989218084}
   - component: {fileID: 1989218087}
   - component: {fileID: 1989218086}
-  m_Layer: 0
+  - component: {fileID: 1989218088}
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52707,6 +52763,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989218083}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1989218088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989218083}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.00000047683716, z: 0.0000019073486}
 --- !u!1 &1992536431
 GameObject:
   m_ObjectHideFlags: 0
