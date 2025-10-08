@@ -8,6 +8,9 @@ public class UICounter : MonoBehaviour
     public static int numCollect = 0; // Number of collectables on map
     public static bool collectedALL = false;
 
+    // Chase Bool
+    public static bool inChase = false;
+
 
 
     public TextMeshProUGUI SCOREtext1; // First Minigame text
@@ -32,6 +35,8 @@ public class UICounter : MonoBehaviour
 
     void Start()
     {
+        // Set everything to 0 (For replayability)
+        inChase = false; 
         taskCounter = 0;
         miniSCORE1 = 0;
         collectablesCount = 0; // Prevents stacking
@@ -44,6 +49,9 @@ public class UICounter : MonoBehaviour
 
     void Update()
     {
+        // Debug.Log(inChase.ToString());
+        
+
         if (collectablesCount >= numCollect)
         {
             collectedALL = true; // All collectables collected

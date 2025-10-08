@@ -47,7 +47,7 @@ public class SecAI : MonoBehaviour
         
         bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
 
-        if (currentState == AIState.Patrol && (canSeePlayer || playerSpotted) || hitTIMER >= 1f)
+        if (currentState == AIState.Patrol && (canSeePlayer || playerSpotted) || hitTIMER >= 25f)
         {
             currentState = AIState.Chase; // Chase the player
         }
@@ -67,7 +67,7 @@ public class SecAI : MonoBehaviour
 
         if (hitTIMER > 0f)
         {
-            hitTIMER -= Time.deltaTime; // reduce the time
+            hitTIMER = Mathf.Min(hitTIMER - 0.1f, 100f); // Regress at a speed. MAX HOLD
         }
         if (hitTIMER < 0f)
         {
@@ -79,6 +79,7 @@ public class SecAI : MonoBehaviour
 
     void Patrol()
     {
+        UICounter.inChase = false; // Hiding during chase
         if (!agent.pathPending && agent.remainingDistance < 0.5f) // If path is not pending and the remaining distance to the waypoint is below a threshold
         {
             agent.speed = patrolSP; // Patrol Speed
@@ -88,6 +89,7 @@ public class SecAI : MonoBehaviour
 
     void Chase()
     {
+        UICounter.inChase = true; // Hiding during chase
         agent.speed = MaxSP; // Chase Speed
         agent.SetDestination(player.position); // Go towards player
         lastKnownPosition = player.position; // Update last known position constantly while chasing
@@ -138,7 +140,7 @@ public class SecAI : MonoBehaviour
     {
         bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
         currentState = AIState.Chase;
-        yield return new WaitForSeconds(4f); // Wait 4 sec
+        yield return new WaitForSeconds(2f); // Wait
         if (currentState == AIState.Chase && (!canSeePlayer && !playerSpotted)) // If they still cant see the player
         {
             currentState = AIState.Patrol; // Break off the chase

@@ -93,14 +93,14 @@ public class Player : MonoBehaviour
                         SecAI target = hit.collider.GetComponent<SecAI>(); // Find that objects script
                         EnemyAI target2 = hit.collider.GetComponent<EnemyAI>(); // If its the other AI
 
-                        if (target != null) // In case its not the first target
+                        if (target != null)
                         {
-                            target.hitTIMER += Time.deltaTime; // Add time it is exposed
+                            target.hitTIMER = Mathf.Min(target.hitTIMER + 0.2f, 100f); // Adds. MAX 
                         }
 
-                        if (target2 != null) // In case its not the second target
+                        if (target2 != null)
                         {
-                            target2.hitTIMER += Time.deltaTime;
+                            target2.hitTIMER = Mathf.Min(target2.hitTIMER + 0.2f, 100f); // Adds. MAX 
                         }
                     }
                 }

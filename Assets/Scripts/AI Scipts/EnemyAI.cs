@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log(hitTIMER.ToString());
         if (isChaser) // The final chase
         {
             Chase(); // Will always follow the player
@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
 
         if (hitTIMER > 0f)
         {
-            hitTIMER -= Time.deltaTime; // reduce the time
+            hitTIMER = Mathf.Min(hitTIMER - 0.1f, 100f); // Regress at a speed. MAX HOLD
         }
         if (hitTIMER < 0f)
         {
@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour
         {
             bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
 
-            if (currentState == AIState.Patrol && canSeePlayer || hitTIMER >= 1f) // If the state is in Patrol but can see the player
+            if (currentState == AIState.Patrol && canSeePlayer || hitTIMER >= 25f) // If the state is in Patrol but can see the player
             {
                 currentState = AIState.Chase; // Chase the player
             }
@@ -95,6 +95,7 @@ public class EnemyAI : MonoBehaviour
 
     void Patrol()
     {
+        UICounter.inChase = false;
         SecAI.playerSpotted = false;
         if (!agent.pathPending && agent.remainingDistance < 0.5f) // If path is not pending and the remaining distance to the waypoint is below a threshold
         {
@@ -104,6 +105,7 @@ public class EnemyAI : MonoBehaviour
 
     void Chase()
     {
+        UICounter.inChase = true;
         SecAI.playerSpotted = true;
         agent.SetDestination(player.position); // Go towards player
         lastKnownPosition = player.position; // Update last known position constantly while chasing

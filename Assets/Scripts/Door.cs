@@ -17,6 +17,11 @@ public class Door : MonoBehaviour
 
     void Update()
     {
+        if (UICounter.inChase && playerNear) // While the player is still in chase but hide in a locker
+        {
+            StartCoroutine(Delay()); // Give a few sec to see if jumpscares appear
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && playerNear)
         {
             if (open)
@@ -32,6 +37,8 @@ public class Door : MonoBehaviour
                 open = true;
             }
         }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,4 +58,15 @@ public class Door : MonoBehaviour
 
         }
     }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(5f);
+        if (UICounter.inChase && playerNear) // While the player is still in chase but hide in a locker
+        {
+            targetAnimator.SetBool("Grab", true);
+        }
+        
+    }
 }
+
