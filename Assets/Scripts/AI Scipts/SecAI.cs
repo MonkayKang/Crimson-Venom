@@ -26,22 +26,28 @@ public class SecAI : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    // Bools
     public static bool playerSpotted;
+    public float hitTIMER = 0f;
 
     void Start()
     {
+        hitTIMER = 0f;
         playerSpotted = false;
         agent = GetComponent<NavMeshAgent>(); // Find component
         if (waypoints.Length > 0)
-            agent.SetDestination(waypoints[currentIndex].position); // Go towards first waypoint
+        {
+            currentIndex = Random.Range(0, waypoints.Length); // Pick a random waypoint
+            agent.SetDestination(waypoints[currentIndex].position); // Go toward it
+        }
     }
 
     void Update()
     {
+        
+        bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
 
-            bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
-
-        if (currentState == AIState.Patrol && (canSeePlayer || playerSpotted))
+        if (currentState == AIState.Patrol && (canSeePlayer || playerSpotted) || hitTIMER >= 1f)
         {
             currentState = AIState.Chase; // Chase the player
         }
@@ -58,6 +64,16 @@ public class SecAI : MonoBehaviour
             {
                 Chase(); // Do this
             }
+
+        if (hitTIMER > 0f)
+        {
+            hitTIMER -= Time.deltaTime; // reduce the time
+        }
+        if (hitTIMER < 0f)
+        {
+            hitTIMER = 0f;
+        }
+
         
     }
 
@@ -97,6 +113,7 @@ public class SecAI : MonoBehaviour
         Vector3 dirToPlayer = player.position - transform.position; // Calculate the direction from player to AI
         float distanceToPlayer = dirToPlayer.magnitude; // Calculate the distance from us (AI) to the player
 
+        Debug.DrawRay(transform.position + Vector3.up * 1.5f, dirToPlayer.normalized * viewRange, Color.magenta);
         // Check distance
         if (distanceToPlayer > viewRange) return false; // If the distance from the player is greater than the view range set, it cannot see them
 
@@ -112,6 +129,7 @@ public class SecAI : MonoBehaviour
                 return true; // Player is visible
             }
         }
+
 
         return false; // Player is not visible
     }

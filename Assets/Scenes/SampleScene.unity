@@ -8174,6 +8174,7 @@ MonoBehaviour:
   viewAngle: 120
   searchDuration: 3
   isChaser: 1
+  hitTIMER: 0
 --- !u!195 &357874496
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11363,10 +11364,11 @@ MonoBehaviour:
   - {fileID: 819551422}
   - {fileID: 844492023}
   player: {fileID: 1937319241}
-  viewRange: 30
+  viewRange: 15
   viewAngle: 120
   searchDuration: 3
   isChaser: 0
+  hitTIMER: 0
 --- !u!136 &474058712
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -51314,6 +51316,8 @@ MonoBehaviour:
   flashlight: {fileID: 747708343}
   crouchHeight: 0.5
   throwForce: 15
+  lightDis: 13
+  angle: 30
 --- !u!136 &1937319238
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -52051,6 +52055,7 @@ MonoBehaviour:
   viewAngle: 90
   patrolSP: 3.5
   MaxSP: 7
+  hitTIMER: 0
 --- !u!136 &1960368690
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.Image;
 
 public class Player : MonoBehaviour
 {
@@ -49,6 +51,11 @@ public class Player : MonoBehaviour
     public float crouchHeight = 0.5f;
     public float throwForce = 15f; // How far will the projectile go (inerthia)
 
+    public float lightDis = 5f; // The raycast distance
+    public float angle = 30f; // Angle of flashlight cone 
+
+
+
 
     void Start()
     {
@@ -65,6 +72,41 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isOn)
+        {
+            // Number of rays to show on each side
+            int raysPerSide = 3;
+
+            // Step angle between each ray
+            float step = angle / raysPerSide;
+
+            for (int i = -raysPerSide; i <= raysPerSide; i++) // For each rays
+            {
+                Quaternion rotation = Quaternion.Euler(0, i * step, 0);
+                Vector3 dir = rotation * cameraTransform.forward;
+                Debug.DrawRay(transform.position + Vector3.up * .5f, dir * lightDis, Color.yellow); // Draw the rays (For my purpose only)
+
+                if (Physics.Raycast(transform.position + Vector3.up * .5f, dir, out RaycastHit hit, lightDis)) // Shoot a raycast
+                {
+                    if (hit.collider.CompareTag("Damage")) // If it hits the tag "Damage"
+                    {
+                        SecAI target = hit.collider.GetComponent<SecAI>(); // Find that objects script
+                        EnemyAI target2 = hit.collider.GetComponent<EnemyAI>(); // If its the other AI
+
+                        if (target != null) // In case its not the first target
+                        {
+                            target.hitTIMER += Time.deltaTime; // Add time it is exposed
+                        }
+
+                        if (target2 != null) // In case its not the second target
+                        {
+                            target2.hitTIMER += Time.deltaTime;
+                        }
+                    }
+                }
+            }
+        }
+
         // Mouse Look
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
@@ -241,4 +283,5 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("Lose");
         }
     }
+
 }

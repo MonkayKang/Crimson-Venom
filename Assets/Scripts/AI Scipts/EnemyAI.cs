@@ -27,18 +27,34 @@ public class EnemyAI : MonoBehaviour
 
     public bool isChaser = false;
 
+    public float hitTIMER = 0f;
+
     void Start()
     {
+        hitTIMER = 0f;
         agent = GetComponent<NavMeshAgent>(); // Find component
         if (waypoints.Length > 0)
-            agent.SetDestination(waypoints[currentIndex].position); // Go towards first waypoint
+        {
+            currentIndex = Random.Range(0, waypoints.Length); // Pick a random waypoint
+            agent.SetDestination(waypoints[currentIndex].position); // Go toward it
+        } 
     }
 
     void Update()
     {
+        
         if (isChaser) // The final chase
         {
             Chase(); // Will always follow the player
+        }
+
+        if (hitTIMER > 0f)
+        {
+            hitTIMER -= Time.deltaTime; // reduce the time
+        }
+        if (hitTIMER < 0f)
+        {
+            hitTIMER = 0f; // Never below 0
         }
 
 
@@ -46,7 +62,7 @@ public class EnemyAI : MonoBehaviour
         {
             bool canSeePlayer = CanSeePlayer(); // Set the bool to reflect a Condition "CanSeePlayer()"
 
-            if (currentState == AIState.Patrol && canSeePlayer) // If the state is in Patrol but can see the player
+            if (currentState == AIState.Patrol && canSeePlayer || hitTIMER >= 1f) // If the state is in Patrol but can see the player
             {
                 currentState = AIState.Chase; // Chase the player
             }
@@ -130,6 +146,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 dirToPlayer = player.position - transform.position; // Calculate the direction from player to AI
         float distanceToPlayer = dirToPlayer.magnitude; // Calculate the distance from us (AI) to the player
 
+        Debug.DrawRay(transform.position + Vector3.up * 1.5f, dirToPlayer.normalized * viewRange, Color.magenta);
         // Check distance
         if (distanceToPlayer > viewRange) return false; // If the distance from the player is greater than the view range set, it cannot see them
 

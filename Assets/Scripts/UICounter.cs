@@ -32,6 +32,7 @@ public class UICounter : MonoBehaviour
 
     void Start()
     {
+        taskCounter = 0;
         miniSCORE1 = 0;
         collectablesCount = 0; // Prevents stacking
         collectableUI.enabled = false;
