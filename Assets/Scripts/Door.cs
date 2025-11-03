@@ -43,6 +43,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        DialogueUI.pickRANGE = true;
         if (other.CompareTag("player"))
         {
             playerNear = true;
@@ -52,6 +53,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        DialogueUI.pickRANGE = false;
         if (other.CompareTag("player"))
         {
             playerNear = false;

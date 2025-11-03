@@ -213,6 +213,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Flashlight"))
         {
+            DialogueUI.pickRANGE = true; // UI now doesn't dissapear until they pick up the item
             nearFlashlight = true; // Bool that tells the player that they can pickup the item
             Flashlight = other.gameObject; // "Paint the Target"
         }
@@ -230,6 +231,7 @@ public class Player : MonoBehaviour
         {
             if (Flashlight == other.gameObject)
             {
+                DialogueUI.pickRANGE = false; // Player is too far away for the UI;
                 Flashlight = null; // "Remove the Paint"
                 nearFlashlight = false; // Outside the range
             }
@@ -255,6 +257,7 @@ public class Player : MonoBehaviour
             Flashlight = null; // Flashlight (Paint) is gone
             nearFlashlight = false; // No longer near the flashlight (Its gone)
             UICounter.taskCounter++; // New Task
+            DialogueUI.pickRANGE = false; // Set it back to false for other UI
         }
 
         if (Input.GetKeyDown(KeyCode.E) && Dart != null)
