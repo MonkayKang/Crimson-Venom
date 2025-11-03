@@ -35,6 +35,11 @@ public class Gadget : MonoBehaviour
     public Color redCODE = Color.red; // For red doors
 
 
+
+    // Pickup Handheld
+    private bool nearPlayer;
+
+
     void Start()
     {
         _anim = GetComponent<Animator>();
@@ -53,7 +58,14 @@ public class Gadget : MonoBehaviour
 
     void Update()
     {
-
+        if (!isHandheld && nearPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                handheld.SetActive(true); // ON
+                Destroy(gameObject); // Destroy itself
+            }
+        }
         if (isHandheld)
         {
             // Detect button presses and enqueue them
@@ -215,7 +227,29 @@ public class Gadget : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!isHandheld) // Pickup the device
+        {
+            if (other.CompareTag("player"))
+            {
+                nearPlayer = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!isHandheld) // Pickup the device
+        {
+            if (other.CompareTag("player"))
+            {
+                nearPlayer = false;
+            }
+        }
+    }
+
+   /* private void OnTriggerStay(Collider other)
     {
         if (!isHandheld) // Pickup the device
         {
@@ -228,6 +262,6 @@ public class Gadget : MonoBehaviour
                 }
             }
         }
-    }
+    } */
 }
 

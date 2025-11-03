@@ -24,7 +24,6 @@ public class InsertKey : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("used");
                 _anim.SetTrigger("InsertKey"); // Play the animation
             }
         }
@@ -34,7 +33,6 @@ public class InsertKey : MonoBehaviour
     {
         if (other.CompareTag("player") && redDOOR) // If it connects with the gadget and is a red door
         {
-            Debug.Log("Hit Gadget");
             rdoonRADIUS = true;
         }
     }
