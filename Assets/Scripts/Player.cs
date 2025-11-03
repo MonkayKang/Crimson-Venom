@@ -164,7 +164,10 @@ public class Player : MonoBehaviour
         {
             isOn = !isOn; // Toggle Bool to see if the light is on our off
             ItemFlashlight.SetActive(isOn); // Set the object ON or OFF
-            flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite; // Checks bool if "isON". The colon (:) mean if its true do this (left) and if its false do this (right).
+            if (flashlightUI != null) 
+            {
+                flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite; // Checks bool if "isON". The colon (:) mean if its true do this (left) and if its false do this (right).
+            }
             if (isOn)
             {
                 source.PlayOneShot(clip1); // Audio on

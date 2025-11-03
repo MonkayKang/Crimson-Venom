@@ -42,7 +42,6 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(hitTIMER.ToString());
         if (isChaser) // The final chase
         {
             Chase(); // Will always follow the player
