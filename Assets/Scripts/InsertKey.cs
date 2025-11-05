@@ -10,6 +10,8 @@ public class InsertKey : MonoBehaviour
 
     private Animator _anim;
 
+    public GameObject destroyOBJ; // If we want to remove a door
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,10 @@ public class InsertKey : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _anim.SetTrigger("InsertKey"); // Play the animation
+                if (destroyOBJ != null ) // If we want something to be gone
+                {
+                    Destroy(destroyOBJ);
+                }
             }
         }
     }

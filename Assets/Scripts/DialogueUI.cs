@@ -23,13 +23,12 @@ public class DialogueUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E) && pickRANGE)
+        if (inRange && Input.GetKeyDown(KeyCode.E))
         {
             UI.SetActive(false); // turn it off
             if (DestroyWall != null) // For if i want to remove an object
                 GameObject.Destroy(DestroyWall);
             StartCoroutine(Wait1Second());
-
         }
     }
 
