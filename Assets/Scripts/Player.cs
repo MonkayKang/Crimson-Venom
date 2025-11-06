@@ -15,9 +15,17 @@ public class Player : MonoBehaviour
 
     // Audio
     public AudioSource source;
+    public AudioSource source2;
     public AudioClip clip1;
     public AudioClip clip2;
     public AudioClip clip3;
+    public AudioClip WalkingAudio;
+
+    // Walking
+    public float pitchMin = 0.9f;
+    public float pitchMax = 1.1f;
+    public float stepDelay = 0.5f; // delay between steps
+    private float stepTimer; // How long they walked
 
     //UI
     public Sprite flashlightOffSprite;  // Sprite when flashlight is off
@@ -70,10 +78,32 @@ public class Player : MonoBehaviour
         {
             Gadget.SetActive(false);
         }
+
+        hasFlashlight = false; // Reusable when resetting the game
+        hasGadget = false; // resting the game variable
     }
 
     void Update()
     {
+        // Check if player is moving (on ground and not zero velocity)
+        bool isMoving = Input.GetKey(KeyCode.W);
+
+        if (isMoving)
+        {
+            stepTimer -= Time.deltaTime;
+
+            if (stepTimer <= 0f)
+            {
+                source2.pitch = Random.Range(pitchMin, pitchMax);
+                source2.PlayOneShot(WalkingAudio);
+                stepTimer = stepDelay;
+            }
+        }
+        else
+        {
+            stepTimer = 0f; // reset timer when stopping
+        }
+
         if (isOn)
         {
             // Number of rays to show on each side
@@ -198,7 +228,7 @@ public class Player : MonoBehaviour
             if (transform.localScale.y == originalHeight) // If your standing
             {
                 // Crouch
-                speed = 4f;
+                speed = 3f;
                 transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z); // Height becomes 0.5
             }
         }
@@ -206,7 +236,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftControl)) // If let go of Ctrl
         {
             // Stand up
-            speed = 4f;
+            speed = 3f;
             transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
         }
     }

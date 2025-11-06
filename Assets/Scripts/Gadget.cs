@@ -12,6 +12,12 @@ public class Gadget : MonoBehaviour
     public bool isHandheld; // Is this the objects that's picked up or Used
 
 
+    // Audio
+    public AudioSource source; // Where its playing
+    public AudioClip clip1; // Audio Clip
+    public AudioClip clip2; // Audio Clip 2
+
+
     public GameObject handheld; // What object to turn on
 
     // Handheld
@@ -134,8 +140,20 @@ public class Gadget : MonoBehaviour
         // Update visual display
         UpdateDisplay();
 
+        // Check if the code matches
+        if (currentCode == redCode)
+        {
+            if (pointLight != null)
+            {
+                source.PlayOneShot(clip1); // Play AUdio
+                InsertKey.rDoorON = true; // the gadget is now red
+                pointLight.color = redCODE;
+            }
+            Debug.Log("Correct code entered!");
+        }
+
         // If code exceeds max length, reset
-        if (currentCode.Length > codelength)
+        else if (currentCode.Length >= codelength)
         {
             StartCoroutine(WrongCode());
             return;
@@ -143,20 +161,13 @@ public class Gadget : MonoBehaviour
 
         Debug.Log("Current code: " + currentCode);
 
-        // Check if the code matches
-        if (currentCode == redCode)
-        {
-            if (pointLight != null)
-            {
-                InsertKey.rDoorON = true; // the gadget is now red
-                pointLight.color = redCODE;
-            }
-            Debug.Log("Correct code entered!");
-        }
+        
     }
 
     IEnumerator WrongCode()
     {
+        source.PlayOneShot(clip2); // Play Audio
+        InsertKey.rDoorON = false; // Reset the bool to prevent the wrong code being inputted
         currentCode = "";
         Debug.Log("Code reset!");
         stopQueue = true; // Stop typing
@@ -249,19 +260,5 @@ public class Gadget : MonoBehaviour
         }
     }
 
-   /* private void OnTriggerStay(Collider other)
-    {
-        if (!isHandheld) // Pickup the device
-        {
-            if (other.CompareTag("player"))
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    handheld.SetActive(true); // ON
-                    Destroy(gameObject); // Destroy itself
-                }
-            }
-        }
-    } */
 }
 

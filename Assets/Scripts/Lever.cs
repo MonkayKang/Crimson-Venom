@@ -14,6 +14,11 @@ public class Lever : MonoBehaviour
     private bool inrange; // Player in range
     public bool isPickup; // Resuing the same code
 
+
+    // Audio
+    public AudioSource source;
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,7 @@ public class Lever : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                source.PlayOneShot(clip);
                 if (UI != null)
                 {
                     UI.SetActive(false);
