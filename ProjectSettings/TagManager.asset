@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Damage
   - Gadget
+  - Lever
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Projectile
   - Ignore
   - Gadget
-  - 
+  - IgnoreLights
   - 
   - 
   - 

@@ -53,15 +53,11 @@ public class Toggle : MonoBehaviour
         {
             DialogueUI.pickRANGE = true; // In range for the UI
 
-            if (isEnd && (UICounter.collectedALL)) // If you collected all the pieces
+            if (isEnd) // If you collected all the pieces
             {
                 SceneManager.LoadScene("Win"); 
             }
 
-            if (isEnd && (!UICounter.collectedALL)) // If you didn't
-            {
-                SceneManager.LoadScene("Win(Bad)");
-            }
 
             if (isCollectable)
             {

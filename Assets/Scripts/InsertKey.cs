@@ -7,6 +7,7 @@ public class InsertKey : MonoBehaviour
     public bool redDOOR; // Is it a red keypad
     public static bool rDoorON; // Is gadget red?
     private bool rdoonRADIUS; // Within Radius of red door
+    public GameObject lights; // Lights
 
     private Animator _anim;
 
@@ -15,6 +16,7 @@ public class InsertKey : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lights.SetActive(false); //  Turn them off
         _anim = GetComponent<Animator>();
         rDoorON = false; // prevents loops
     }
@@ -27,6 +29,7 @@ public class InsertKey : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _anim.SetTrigger("InsertKey"); // Play the animation
+                lights.SetActive(true);
                 if (destroyOBJ != null ) // If we want something to be gone
                 {
                     Destroy(destroyOBJ);
