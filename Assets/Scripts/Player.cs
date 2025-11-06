@@ -10,10 +10,8 @@ public class Player : MonoBehaviour
 {
     // Game objects
     private GameObject Flashlight; // The world pickup
-    private GameObject Dart; // Ballon Pop
     public GameObject ItemFlashlight; // The one the player holds (Aka the one in their inventory)
     public GameObject Gadget; // The object that will appear and re-appear (Selections)
-    public GameObject ItemDart; // The throwing Dart
 
     // Audio
     public AudioSource source;
@@ -22,7 +20,6 @@ public class Player : MonoBehaviour
     public AudioClip clip3;
 
     //UI
-    public Image flashlightUI;          // What UI Image Will Change
     public Sprite flashlightOffSprite;  // Sprite when flashlight is off
     public Sprite flashlightOnSprite;   // Sprite when flashlight is on
 
@@ -45,7 +42,6 @@ public class Player : MonoBehaviour
     private bool hasFlashlight = false;
     public static bool hasGadget = false;
     private bool isOn = false;
-    private bool hasDart = false;
     private bool nearDart = false;
 
     // Float
@@ -196,26 +192,6 @@ public class Player : MonoBehaviour
             isOn = false;
         }
 
-
-        // Toggle flashlight light ON/OFF only if holding it
-        if (hasFlashlight && ItemFlashlight.activeSelf && Input.GetKeyDown(KeyCode.Mouse1)) // Right click toggle
-        {
-            isOn = !isOn;
-            ItemFlashlight.SetActive(isOn);
-            if (flashlightUI != null)
-            {
-                flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite;
-            }
-            source.PlayOneShot(isOn ? clip1 : clip2);
-        }
-
-
-        // Throw Dart
-        if (hasDart && Input.GetKeyDown(KeyCode.Mouse0)) // Left click
-        {
-            Throw();
-        }
-
         // Crouch
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -249,11 +225,6 @@ public class Player : MonoBehaviour
             Flashlight = other.gameObject; // "Paint the Target"
         }
 
-        if (other.CompareTag("Projectile"))
-        {
-            Dart = other.gameObject; // "Paint the target"
-            nearDart = true;
-        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -268,14 +239,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("Projectile"))
-        {
-            if (Dart == other.gameObject)
-            {
-                Dart = null; // "Remove the Paint"
-                nearDart = false;
-            }
-        }
     }
 
     public void Pickup()
@@ -291,27 +254,8 @@ public class Player : MonoBehaviour
             DialogueUI.pickRANGE = false; // Set it back to false for other UI
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && Dart != null)
-        {
-            hasDart = true; // Player has Dart
-            Destroy(Dart); // Remove the pickup from the world
-            Dart = null; // Dart (Paint) is gone
-            nearDart = false; // No longer near the flashlight (Its gone)
-        }
     }
 
-    public void Throw()
-    {
-        // Spawn dart slightly in front of camera
-        GameObject dart = Instantiate(ItemDart, cameraTransform.position + cameraTransform.forward * 0.5f, cameraTransform.rotation);
-
-        // Add force forward
-        Rigidbody rb = dart.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.AddForce(cameraTransform.forward * throwForce, ForceMode.VelocityChange);
-        }
-    }
     private void OnControllerColliderHit(ControllerColliderHit hit) // If hits the enemy
     {
 

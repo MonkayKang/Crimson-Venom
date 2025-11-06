@@ -882,6 +882,7 @@ GameObject:
   - component: {fileID: 2120321748}
   - component: {fileID: 2120321750}
   - component: {fileID: 2120321749}
+  - component: {fileID: 2120321751}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -946,6 +947,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120321747}
   m_CullTransparentMesh: 1
+--- !u!114 &2120321751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120321747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d451a7ec37b9834cad4cfd5c8152b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 2120321749}
+  sprites:
+  - {fileID: 21300000, guid: 3bcbd4c3a88b2ed46a243c66b68c7c1b, type: 3}
+  - {fileID: 21300000, guid: 4210c68b6a5b0f849a0582bb504b7883, type: 3}
+  - {fileID: 21300000, guid: 1ed39ae046b065d4bbcd2e27ff6ccdfb, type: 3}
+  - {fileID: 21300000, guid: 8c6798f2af925bc4fb3d4509ac7d125d, type: 3}
+  - {fileID: 21300000, guid: 2097102b7fd09014ab00515da189b56a, type: 3}
+  flipInterval: 0.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
