@@ -36,8 +36,17 @@ public class Lever : MonoBehaviour
                 {
                     Destroy(DestroyOBJ); // get rid of it
                 }
-                Uobjects1.SetActive(false); Uobjects2.SetActive(false); // turn these off
-                Lobjects.SetActive(true); // Turn this object on
+
+                if (Uobjects1 != null && Uobjects1 != null)
+                {
+                    Uobjects1.SetActive(false); Uobjects2.SetActive(false); // turn these off
+                }
+                
+                if (Lobjects != null)
+                {
+                    Lobjects.SetActive(true); // Turn this object on
+                }
+                
 
                 
             }
@@ -49,7 +58,11 @@ public class Lever : MonoBehaviour
                 Uobjects1.SetActive(false);
                 Uobjects2.SetActive(false);
                 Lever.playerLEVER = true;
-                StartCoroutine(Wait1Second());
+            if (DestroyOBJ != null)
+            {
+                Destroy(DestroyOBJ); // get rid of it
+            }
+            StartCoroutine(Wait1Second());
 
         }
     }

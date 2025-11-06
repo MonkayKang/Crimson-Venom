@@ -25,7 +25,7 @@ public class DialogueUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E) && !destroyable) // if it range of Trigger, Press E, and to prevent it from being destroyed.
+        if (inRange && Input.GetKeyDown(KeyCode.E) && !destroyable && !isExpection) // if it range of Trigger, Press E, and to prevent it from being destroyed.
         {
             UI.SetActive(false); // turn it off
             if (DestroyWall != null) // For if i want to remove an object

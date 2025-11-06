@@ -62,7 +62,7 @@ public class Gadget : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                handheld.SetActive(true); // ON
+                Player.hasGadget = true;
                 Destroy(gameObject); // Destroy itself
             }
         }

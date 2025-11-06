@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     // Game objects
     private GameObject Flashlight; // The world pickup
     private GameObject Dart; // Ballon Pop
-    public GameObject ItemFlashlight; // The one the player holds 
+    public GameObject ItemFlashlight; // The one the player holds (Aka the one in their inventory)
+    public GameObject Gadget; // The object that will appear and re-appear (Selections)
     public GameObject ItemDart; // The throwing Dart
 
     // Audio
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
     // Bools
     private bool nearFlashlight = false;
     private bool hasFlashlight = false;
+    public static bool hasGadget = false;
     private bool isOn = false;
     private bool hasDart = false;
     private bool nearDart = false;
@@ -55,8 +57,6 @@ public class Player : MonoBehaviour
     public float angle = 30f; // Angle of flashlight cone 
 
 
-
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -67,6 +67,12 @@ public class Player : MonoBehaviour
         if (ItemFlashlight != null)
         {
             ItemFlashlight.SetActive(false);
+        }
+
+        // Make sure gadget is off at start
+        if (Gadget != null)
+        {
+            Gadget.SetActive(false);
         }
     }
 
@@ -159,23 +165,48 @@ public class Player : MonoBehaviour
             Pickup();
         }
 
-        // Toggle flashlight
-        if (hasFlashlight && Input.GetKeyDown(KeyCode.F)) // When Press "F"
+        if (Input.GetKeyDown(KeyCode.F) && hasFlashlight) // Flashlight 
         {
-            isOn = !isOn; // Toggle Bool to see if the light is on our off
-            ItemFlashlight.SetActive(isOn); // Set the object ON or OFF
-            if (flashlightUI != null) 
-            {
-                flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite; // Checks bool if "isON". The colon (:) mean if its true do this (left) and if its false do this (right).
-            }
+            isOn = !isOn; // The bool of which, Is it on or not
+
+            ItemFlashlight.SetActive(isOn);
+
             if (isOn)
             {
-                source.PlayOneShot(clip1); // Audio on
+                Gadget.SetActive(false); // The gadget is off
+                source.PlayOneShot(clip1); // On SFX
             }
-            if (!isOn)
+            else
             {
-                source.PlayOneShot(clip2); // Audio off
+                source.PlayOneShot(clip2); // Off SFX
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.G) && hasGadget)
+        {
+            ItemFlashlight.SetActive(false); // Gadget
+            Gadget.SetActive(true);
+            isOn = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.H)) // Nothing
+        {
+            ItemFlashlight.SetActive(false);
+            Gadget.SetActive(false);
+            isOn = false;
+        }
+
+
+        // Toggle flashlight light ON/OFF only if holding it
+        if (hasFlashlight && ItemFlashlight.activeSelf && Input.GetKeyDown(KeyCode.Mouse1)) // Right click toggle
+        {
+            isOn = !isOn;
+            ItemFlashlight.SetActive(isOn);
+            if (flashlightUI != null)
+            {
+                flashlightUI.sprite = isOn ? flashlightOnSprite : flashlightOffSprite;
+            }
+            source.PlayOneShot(isOn ? clip1 : clip2);
         }
 
 
@@ -191,7 +222,7 @@ public class Player : MonoBehaviour
             if (transform.localScale.y == originalHeight) // If your standing
             {
                 // Crouch
-                speed = 2.5f;
+                speed = 4f;
                 transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z); // Height becomes 0.5
             }
         }
@@ -199,7 +230,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftControl)) // If let go of Ctrl
         {
             // Stand up
-            speed = 5f;
+            speed = 4f;
             transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
         }
     }
@@ -208,7 +239,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Damage")) // Just in case character Controller doesnt register hits head on
         {
-            SceneManager.LoadScene("Lose"); 
+            SceneManager.LoadScene("Lose");
         }
 
         if (other.CompareTag("Flashlight"))
