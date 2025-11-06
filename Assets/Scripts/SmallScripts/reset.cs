@@ -16,7 +16,7 @@ public class reset : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0); // Restart
+            SceneManager.LoadScene("StartScreen"); // Restart
         }
     }
 }
