@@ -30,6 +30,7 @@ public class InsertKey : MonoBehaviour
             {
                 _anim.SetTrigger("InsertKey"); // Play the animation
                 lights.SetActive(true);
+                Player.GadgetANIM = true; // Play the animation for player
                 if (destroyOBJ != null ) // If we want something to be gone
                 {
                     Destroy(destroyOBJ);

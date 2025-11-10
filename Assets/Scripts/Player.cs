@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
     private bool isOn = false;
     private bool nearDart = false;
 
+    public static bool GadgetANIM; // Coutine
+
     // Float
     private float originalHeight;
     public float crouchHeight = 0.5f;
@@ -63,6 +65,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        GadgetANIM = false;
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor for FPS-style control
         originalHeight = transform.localScale.y; // Store Player Standing
@@ -86,7 +89,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Check if player is moving (on ground and not zero velocity)
-        bool isMoving = Input.GetKey(KeyCode.W);
+        bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
+
+        if (GadgetANIM)
+        {
+            StartCoroutine(WaitfewSeconds());
+        }
 
         if (isMoving)
         {
@@ -293,6 +301,14 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Lose");
         }
+    }
+
+    IEnumerator WaitfewSeconds()
+    {
+        Gadget.SetActive(false); // Disable device
+        yield return new WaitForSeconds(1.2f);
+        Gadget.SetActive(true); // Return Device
+        GadgetANIM = false; // Turn off animation
     }
 
 }
