@@ -12,7 +12,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Start()
     {
-        words = "Task: Find a way to escape the carnival";
+        words = "Objective: Find a way to escape the carnival";
         StartCoroutine(TypeText(words, TaskText));
     }
 
