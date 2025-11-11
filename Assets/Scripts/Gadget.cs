@@ -171,7 +171,7 @@ public class Gadget : MonoBehaviour
         currentCode = "";
         Debug.Log("Code reset!");
         stopQueue = true; // Stop typing
-        pointLight.color = Color.magenta; // Turn purple
+        pointLight.color = Color.red; // Turn red
         yield return new WaitForSeconds(0.2f);
         stopQueue = false; // Resume
         pointLight.color = defaultColor; // Then back to white
