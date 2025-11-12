@@ -68,6 +68,7 @@ public class Gadget : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Player.gadgetON = true; // One time use
                 Player.hasGadget = true;
                 Destroy(gameObject); // Destroy itself
             }

@@ -14,6 +14,8 @@ public class Lever : MonoBehaviour
     private bool inrange; // Player in range
     public bool isPickup; // Resuing the same code
 
+    public GameObject[] UnloadPLURAL; // for multiple
+
 
     // Audio
     public AudioSource source;
@@ -40,21 +42,39 @@ public class Lever : MonoBehaviour
                 }
                 if (DestroyOBJ != null)
                 {
-                    Destroy(DestroyOBJ); // get rid of it
+                    Destroy(DestroyOBJ);
                 }
 
-                if (Uobjects1 != null && Uobjects1 != null)
+                if (Uobjects1 != null && Uobjects2 != null)
                 {
-                    Uobjects1.SetActive(false); Uobjects2.SetActive(false); // turn these off
+                    Uobjects1.SetActive(false);
+                    Uobjects2.SetActive(false);
                 }
-                
+
                 if (Lobjects != null)
                 {
-                    Lobjects.SetActive(true); // Turn this object on
+                    Lobjects.SetActive(true);
                 }
-                
 
-                
+                if (UnloadPLURAL != null)
+                {
+                    foreach (GameObject obj in UnloadPLURAL)
+                    {
+                        obj.SetActive(false);
+                    }
+                }
+
+                playerLEVER = false;
+
+                //  Reset lever in player's hand + UI
+                Player playerScript = FindObjectOfType<Player>();
+                if (playerScript != null)
+                {
+                    playerScript.LeverItem.SetActive(false);
+                    playerScript.thirdSLOT.sprite = playerScript.blankUI;
+                    RectTransform slotTransform3 = playerScript.thirdSLOT.GetComponent<RectTransform>();
+                    slotTransform3.sizeDelta = new Vector2(250f, 250f);
+                }
             }
         }
 

@@ -10,6 +10,10 @@ public class Door : MonoBehaviour
     private bool open = true;
     private bool playerNear;
 
+    // Audio
+    public AudioSource source;
+    public AudioClip clip;
+
     //Detection UI
     public Image Detection;
     public Sprite closedEYE;
@@ -26,12 +30,14 @@ public class Door : MonoBehaviour
         {
             if (open)
             {
+                source.PlayOneShot(clip);
                 // Close door
                 targetAnimator.SetBool(boolName, false);
                 open = false;
             }
             else
             {
+                source.PlayOneShot(clip);
                 // Open door
                 targetAnimator.SetBool(boolName, true);
                 open = true;
