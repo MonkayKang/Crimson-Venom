@@ -24,7 +24,7 @@ public class Button : MonoBehaviour
     {
         if (isStart)
         {
-            SceneManager.LoadScene("Level");
+            SceneManager.LoadScene("Cutscene");
         }
 
         if (isQuit)
