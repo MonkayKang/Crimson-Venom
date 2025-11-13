@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     public static bool hasGadget = false;
     private bool isOn = false;
     private bool nearDart = false;
-    public static bool gadgetON; 
+    public static bool gadgetON;
 
     public static bool GadgetANIM; // Coutine
 
@@ -85,7 +85,6 @@ public class Player : MonoBehaviour
 
         GadgetANIM = false;
         controller = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor for FPS-style control
         originalHeight = transform.localScale.y; // Store Player Standing
 
         // Make sure held flashlight is off at start
@@ -112,6 +111,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         // UI will change if they have the objects
         if (hasFlashlight)
         {
