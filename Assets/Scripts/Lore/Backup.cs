@@ -3,38 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LorePickup : MonoBehaviour
+public class Backup : MonoBehaviour
 {
     private bool nearPLAYER;
-
-    // Inventory
-    public Image inventorySPACE;
-    public Sprite imageSLOT;
 
     // Pop up
     public Image readUI;
     public GameObject popupOBJ;
+    public Sprite imageSLOT;
 
-    public void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        popupOBJ.SetActive(false);
-        inventorySPACE.enabled = false;
-        readUI.enabled = false;
+        popupOBJ.SetActive(false); // Set the pop up UI true
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (nearPLAYER && Input.GetKeyDown(KeyCode.E))
         {
             popupOBJ.SetActive(true); // Set the pop up UI true
 
             Inventory.newITEM = true;
-            if (inventorySPACE != null)
-            {
-                inventorySPACE.enabled = true;
-                inventorySPACE.sprite = imageSLOT;
-            }
-            readUI.enabled = true;    
+
+            readUI.enabled = true;
             readUI.sprite = imageSLOT;
             Player.timeSTOP = true; // time has stopped
 

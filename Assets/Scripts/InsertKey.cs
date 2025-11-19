@@ -9,6 +9,8 @@ public class InsertKey : MonoBehaviour
     private bool rdoonRADIUS; // Within Radius of red door
     public GameObject lights; // Lights
 
+    public GameObject uiPOP; // the pop up
+
     private Animator _anim;
 
     public GameObject destroyOBJ; // If we want to remove a door
@@ -16,6 +18,7 @@ public class InsertKey : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uiPOP.SetActive(false);
         lights.SetActive(false); //  Turn them off
         _anim = GetComponent<Animator>();
         rDoorON = false; // prevents loops
@@ -32,6 +35,7 @@ public class InsertKey : MonoBehaviour
                 lights.SetActive(true);
                 Player.GadgetANIM = true; // Play the animation for player
                 Player.gadgetON = false;
+                uiPOP.SetActive(false);
                 if (destroyOBJ != null ) // If we want something to be gone
                 {
                     Destroy(destroyOBJ);
@@ -46,10 +50,19 @@ public class InsertKey : MonoBehaviour
         {
             rdoonRADIUS = true;
         }
+
+        if (other.CompareTag("player") && rDoorON)
+        {
+            uiPOP.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("player"))
+            uiPOP.SetActive(false);
+
+
         if (other.CompareTag("player") && redDOOR) // Once the player leaves
         {
             rdoonRADIUS = false;

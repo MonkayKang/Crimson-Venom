@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
     public static bool gadgetON;
 
     public static bool GadgetANIM; // Coutine
+    public static bool timeSTOP; // Did time stop
 
     // Float
     private float originalHeight;
@@ -77,6 +78,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        // Make time continue 
+        timeSTOP = false;
+
         // Both UI's will be blank
         firstSLOT.sprite = blankUI;
         secondSLOT.sprite = blankUI;
@@ -111,6 +115,21 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (timeSTOP)
+        {
+            Time.timeScale = 0f; // if Timestop is true, then time will stop
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject.Find("---ZOOMUI---").SetActive(false);
+                GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
+                timeSTOP = false; // Time continues
+            }
+        }
+        if (!timeSTOP)
+        {
+            Time.timeScale = 1f; // if Timestop is false, then time will continue
+        }
+
 
         // UI will change if they have the objects
         if (hasFlashlight)

@@ -1,41 +1,52 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class HoveringUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HoveringUI : MonoBehaviour, IPointerClickHandler
 {
-    public bool firstSLOT;
-    public bool secondSLOT;
+    public GameObject scrollview;
+    public Image hoverImage;
 
-    public GameObject hoverImage;
+    public Sprite image;
     public TextMeshProUGUI text1;
+
+    public string String = "";
+
+    private static bool isOpen = false;
 
     public void Start()
     {
-        hoverImage.SetActive(false);
+        isOpen = false;
+        hoverImage.enabled = false;
+        scrollview.SetActive(false);
+        text1.enabled = false;
     }
 
-    // When mouse enters the UI element
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        hoverImage.SetActive(true);
+        isOpen = !isOpen;
 
-        if (firstSLOT)
+        hoverImage.enabled = isOpen;
+        scrollview.SetActive(isOpen);
+        text1.enabled = isOpen;
+
+        if (isOpen)
         {
-            text1.text = "“Hey Newbie! If you’re on night duty and need to get the generator going, just punch in the circus founding year. That’s the code. Don’t worry, you’ll get the hang of this place soon.”\n \n -From one tech to another";
+            hoverImage.sprite = image;
+            text1.text = String;
         }
-        else if (secondSLOT)
+        else
         {
-            text1.text = "A Blueprint of Twin A";
+            text1.text = "";
         }
     }
 
-    // When mouse exits the UI element
-    public void OnPointerExit(PointerEventData eventData)
+    private IEnumerator WaitSEC()
     {
-        hoverImage.SetActive(false);
-        text1.text = ""; // optional — clears the text when you leave
+        isOpen = false;
+        yield return new WaitForSeconds(0.1f);
+        isOpen = true;
     }
 }

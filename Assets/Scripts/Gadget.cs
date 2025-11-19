@@ -70,7 +70,7 @@ public class Gadget : MonoBehaviour
             {
                 Player.gadgetON = true; // One time use
                 Player.hasGadget = true;
-                Destroy(gameObject); // Destroy itself
+                Destroy(gameObject);
             }
         }
         if (isHandheld)
@@ -260,6 +260,5 @@ public class Gadget : MonoBehaviour
             }
         }
     }
-
 }
 
