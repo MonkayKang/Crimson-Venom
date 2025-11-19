@@ -17,5 +17,10 @@ public class Cutscene : MonoBehaviour
         {
             SceneManager.LoadScene("Level");
         }
+
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            SceneManager.LoadScene("Level");
+        }
     }
 }

@@ -15,7 +15,6 @@ public class Lever : MonoBehaviour
     public bool isPickup; // Resuing the same code
 
     public GameObject[] UnloadPLURAL; // for multiple
-    public GameObject[] LoadPLURAL; // for multiple
 
 
     // Audio
@@ -62,14 +61,6 @@ public class Lever : MonoBehaviour
                     foreach (GameObject obj in UnloadPLURAL)
                     {
                         obj.SetActive(false);
-                    }
-                }
-
-                if (LoadPLURAL != null)
-                {
-                    foreach (GameObject obj in LoadPLURAL)
-                    {
-                        obj.SetActive(true);
                     }
                 }
 
