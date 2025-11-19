@@ -12,10 +12,17 @@ public class Backup : MonoBehaviour
     public GameObject popupOBJ;
     public Sprite imageSLOT;
 
+
+    // Inventory
+    public Image InventoryImage;
+
+
     // Start is called before the first frame update
     void Start()
     {
         popupOBJ.SetActive(false); // Set the pop up UI true
+        if (InventoryImage != null )
+            InventoryImage.enabled = false;
     }
 
     // Update is called once per frame
@@ -23,6 +30,9 @@ public class Backup : MonoBehaviour
     {
         if (nearPLAYER && Input.GetKeyDown(KeyCode.E))
         {
+            if (InventoryImage != null)
+                InventoryImage.enabled = true;
+
             popupOBJ.SetActive(true); // Set the pop up UI true
 
             Inventory.newITEM = true;
