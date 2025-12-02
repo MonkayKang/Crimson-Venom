@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Tracking : MonoBehaviour
 {
-    public Transform player;  // Assign the player's transform
+    private Transform player;  // Assign the player's transform
+
+    void Start()
+    {
+        GameObject obj = GameObject.Find("Player"); // find the player
+        player = obj.transform; // the "player" is that object
+
+    }
 
     void Update()
     {
