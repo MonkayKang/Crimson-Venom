@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
         newITEM = false;
         InventoryUI.sprite = defaultUI; // Go to default
         InventoryPanel.SetActive(false); // Make sure it starts hidden
-        InventoryPanel2.SetActive(false); // Make sure it starts hidden
+        // InventoryPanel2.SetActive(false); // Make sure it starts hidden
     }
 
     // Update is called once per frame
