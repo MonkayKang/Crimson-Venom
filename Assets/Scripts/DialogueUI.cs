@@ -10,6 +10,11 @@ public class DialogueUI : MonoBehaviour
     private bool inRange;
     public bool isExpection;
 
+
+    // TEMP
+    public AudioSource source;
+    public AudioClip clip1;
+
     public bool destroyable;
 
     // Start is called before the first frame update
@@ -27,6 +32,12 @@ public class DialogueUI : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(KeyCode.E) && !destroyable && !isExpection) // if it range of Trigger, Press E, and to prevent it from being destroyed.
         {
+            if (source != null) // Play the temp audio (FOR LOCKER)
+            {
+                source.PlayOneShot(clip1);
+            }
+
+
             UI.SetActive(false); // turn it off
             if (DestroyWall != null) // For if i want to remove an object
                 GameObject.Destroy(DestroyWall);

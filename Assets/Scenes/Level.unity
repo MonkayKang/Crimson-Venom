@@ -2762,6 +2762,8 @@ MonoBehaviour:
   UI: {fileID: 975336138}
   DestroyWall: {fileID: 0}
   isExpection: 0
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 1
 --- !u!65 &84498786
 BoxCollider:
@@ -5257,6 +5259,8 @@ MonoBehaviour:
   UI: {fileID: 605566996}
   DestroyWall: {fileID: 0}
   isExpection: 1
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 0
 --- !u!65 &144015155
 BoxCollider:
@@ -5992,6 +5996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167041139}
   - component: {fileID: 167041138}
+  - component: {fileID: 167041140}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -6070,12 +6075,28 @@ Transform:
   m_GameObject: {fileID: 167041137}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0111663, y: 1.7513775, z: -33.126724}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.17953354, y: 2.541749, z: 0.010713244}
+  m_LocalScale: {x: 1.9948137, y: 1.6700066, z: 1.2280401}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 979336160}
+  m_Father: {fileID: 1620475482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167041140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167041137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b040d2f734e060a4faf0e69b4048017c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 167041138}
+  minIntensity: 1
+  maxIntensity: 2
+  speed: 7
 --- !u!1001 &167197838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9061,6 +9082,8 @@ MonoBehaviour:
   UI: {fileID: 677181002}
   DestroyWall: {fileID: 0}
   isExpection: 0
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 1
 --- !u!65 &291808823
 BoxCollider:
@@ -11106,6 +11129,8 @@ MonoBehaviour:
   UI: {fileID: 26092258}
   DestroyWall: {fileID: 0}
   isExpection: 0
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 1
 --- !u!65 &362455565
 BoxCollider:
@@ -12958,6 +12983,8 @@ MonoBehaviour:
   UI: {fileID: 1269493416}
   DestroyWall: {fileID: 948576663}
   isExpection: 0
+  source: {fileID: 1629642527}
+  clip1: {fileID: 8300000, guid: 3ba7ce6d4c44d7d47a1a66ee9a9ad198, type: 3}
   destroyable: 0
 --- !u!65 &464657001
 BoxCollider:
@@ -19935,6 +19962,8 @@ MonoBehaviour:
   UI: {fileID: 26092258}
   DestroyWall: {fileID: 0}
   isExpection: 0
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 1
 --- !u!1001 &732897648
 PrefabInstance:
@@ -25028,7 +25057,6 @@ Transform:
   - {fileID: 1852284850}
   - {fileID: 1422823532}
   - {fileID: 362530750}
-  - {fileID: 167041139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &985576101 stripped
@@ -26664,6 +26692,8 @@ MonoBehaviour:
   UI: {fileID: 95072069}
   DestroyWall: {fileID: 0}
   isExpection: 0
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 1
 --- !u!65 &1077759516
 BoxCollider:
@@ -29309,6 +29339,8 @@ MonoBehaviour:
   UI: {fileID: 130358007}
   DestroyWall: {fileID: 0}
   isExpection: 1
+  source: {fileID: 0}
+  clip1: {fileID: 0}
   destroyable: 0
 --- !u!65 &1203014572
 BoxCollider:
@@ -36981,6 +37013,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1977521323}
+  - {fileID: 167041139}
   m_Father: {fileID: 631895334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1620475483
