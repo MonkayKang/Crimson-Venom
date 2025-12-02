@@ -78,7 +78,7 @@ public class Lever : MonoBehaviour
             }
         }
 
-        if (inrange && isPickup) // If the player is in range and the lever is a pick up object
+        if (inrange && isPickup && Input.GetKeyDown(KeyCode.E)) // If the player is in range and the lever is a pick up object
         {
                 Lobjects.SetActive(true);
                 Uobjects1.SetActive(false);
