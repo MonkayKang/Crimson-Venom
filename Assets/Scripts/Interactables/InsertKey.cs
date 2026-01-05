@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InsertKey : MonoBehaviour
 {
-    public bool redDOOR; // Is it a red keypad
-    public static bool rDoorON; // Is gadget red?
+    public bool redDOOR; // Is it a blue keypad
+    public static bool rDoorON; // Is gadget blue (FOUND IN GADGET SCRIPT)
     private bool rdoonRADIUS; // Within Radius of red door
     public GameObject lights; // Lights
 
@@ -36,7 +36,8 @@ public class InsertKey : MonoBehaviour
                 Player.GadgetANIM = true; // Play the animation for player
                 Player.gadgetON = false;
                 uiPOP.SetActive(false);
-                if (destroyOBJ != null ) // If we want something to be gone
+                rDoorON = false;
+                if (destroyOBJ != null) // If we want something to be gone
                 {
                     Destroy(destroyOBJ);
                 }
@@ -44,26 +45,32 @@ public class InsertKey : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("player") && redDOOR) // If it connects with the gadget and is a red door
+        if (!other.CompareTag("player")) return;
+
+        if (redDOOR)
         {
             rdoonRADIUS = true;
         }
 
-        if (other.CompareTag("player") && rDoorON)
+        if (rDoorON)
         {
             uiPOP.SetActive(true);
+        }
+        else if (!rDoorON)
+        {
+            uiPOP.SetActive(false);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("player"))
-            uiPOP.SetActive(false);
+        if (!other.CompareTag("player")) return;
 
+        uiPOP.SetActive(false);
 
-        if (other.CompareTag("player") && redDOOR) // Once the player leaves
+        if (redDOOR)
         {
             rdoonRADIUS = false;
         }

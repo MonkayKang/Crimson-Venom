@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrackTog : MonoBehaviour
 {
+    public GameObject trackedOBJ;
     private MeshRenderer m_MeshRenderer;
     public bool isE;
     private bool inside;
@@ -21,10 +22,11 @@ public class TrackTog : MonoBehaviour
         {
             Destroy(gameObject); // Destroy itself
         }
+
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("player") && trackedOBJ != null)
         {
             inside = true;
             m_MeshRenderer.enabled = true;

@@ -16,6 +16,10 @@ public class Backup : MonoBehaviour
     // Inventory
     public Image InventoryImage;
 
+    // Audio
+    public AudioSource source;
+    public AudioClip pickSFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,9 @@ public class Backup : MonoBehaviour
         popupOBJ.SetActive(false); // Set the pop up UI true
         if (InventoryImage != null )
             InventoryImage.enabled = false;
+
+        // Find those names
+        source = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,9 @@ public class Backup : MonoBehaviour
     {
         if (nearPLAYER && Input.GetKeyDown(KeyCode.E))
         {
+            if (source != null)
+                source.PlayOneShot(pickSFX); // Play the SFX
+
             if (InventoryImage != null)
                 InventoryImage.enabled = true;
 

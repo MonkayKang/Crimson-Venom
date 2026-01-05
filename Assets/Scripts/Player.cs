@@ -120,8 +120,8 @@ public class Player : MonoBehaviour
             Time.timeScale = 0f; // if Timestop is true, then time will stop
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GameObject.Find("---ZOOMUI---").SetActive(false);
-                GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
+                // GameObject.Find("---ZOOMUI---").SetActive(false);
+                // GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
                 timeSTOP = false; // Time continues
             }
         }
@@ -246,12 +246,6 @@ public class Player : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         controller.Move(move * speed * Time.deltaTime);
-
-        // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-        }
 
         // Apply Gravity
         velocity.y += gravity * Time.deltaTime;
@@ -397,5 +391,4 @@ public class Player : MonoBehaviour
         Gadget.SetActive(true); // Return Device
         GadgetANIM = false; // Turn off animation
     }
-
 }

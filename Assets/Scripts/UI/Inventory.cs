@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 
 public class Inventory : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class Inventory : MonoBehaviour
 
     // Bool
     private bool isActive;
+
+    // Audio
+    public AudioSource audSOURCE;
+    public AudioClip backpackOpenSFX;
+    public AudioClip backpackCloseSFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -71,12 +78,14 @@ public class Inventory : MonoBehaviour
 
         if (isOpen)
         {
+            audSOURCE.PlayOneShot(backpackOpenSFX);
             Time.timeScale = 0f; // Stop time but allow UI interaction
             Cursor.visible = true;
             isActive = true;
         }
         else
         {
+            audSOURCE.PlayOneShot(backpackCloseSFX);
             Time.timeScale = 1f; // Resume time
             Cursor.visible = false;
             isActive = false;
