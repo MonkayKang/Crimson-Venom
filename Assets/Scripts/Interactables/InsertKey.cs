@@ -31,6 +31,7 @@ public class InsertKey : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                LightPulse.Powered = true; // Lights are powered
                 _anim.SetTrigger("InsertKey"); // Play the animation
                 lights.SetActive(true);
                 Player.GadgetANIM = true; // Play the animation for player
