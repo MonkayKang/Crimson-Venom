@@ -35,7 +35,7 @@ public class LightPulse : MonoBehaviour
 
     void Update()
     {
-        // Lever overrides flickering
+        // Lever Light Pulse
         if (Lever.playerLEVER)
         {
             isFlickering = false;
@@ -90,27 +90,27 @@ public class LightPulse : MonoBehaviour
 
     IEnumerator QuickStutter()
     {
-        int count = Random.Range(3, 6);
+        int count = Random.Range(3, 6); // How many "blinks" between a range of 3-6
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++) // For that many do this
         {
-            targetLight.intensity = Random.Range(minFlickerIntensity, fullIntensity * 0.6f);
-            yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
+            targetLight.intensity = Random.Range(minFlickerIntensity, fullIntensity * 0.6f); // adjust the lighting
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.15f)); // Wait
 
-            targetLight.intensity = fullIntensity;
-            yield return new WaitForSeconds(Random.Range(0.05f, 0.2f));
+            targetLight.intensity = fullIntensity; // Go back to full intensity
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.2f)); // Wait
         }
     }
 
     IEnumerator DoubleBlink()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++) // For two blinks
         {
-            targetLight.intensity = minFlickerIntensity;
-            yield return new WaitForSeconds(0.15f);
+            targetLight.intensity = minFlickerIntensity; // Lower the light
+            yield return new WaitForSeconds(0.15f); // Wait
 
-            targetLight.intensity = fullIntensity;
-            yield return new WaitForSeconds(0.25f);
+            targetLight.intensity = fullIntensity; // Go back the full intensity
+            yield return new WaitForSeconds(0.25f); // Wait
         }
     }
 }
