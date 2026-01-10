@@ -1072,6 +1072,7 @@ MonoBehaviour:
   pitchMin: 0.9
   pitchMax: 1.1
   stepDelay: 0.5
+  stepTimer: 5
   flashlightOffSprite: {fileID: 21300000, guid: ab9c1dc53d3d4234a858882cc1778f77, type: 3}
   flashlightOnSprite: {fileID: 21300000, guid: 9989827eacea62640aacfe61f6e1cc56, type: 3}
   blankUI: {fileID: 21300000, guid: 8e3fc46278fdedd47b345316b6e73fe5, type: 3}
@@ -1091,6 +1092,8 @@ MonoBehaviour:
   throwForce: 15
   lightDis: 17
   angle: 30
+  controllerSensitivity: 120
+  stickDeadzone: 0.25
 --- !u!136 &38818945
 CapsuleCollider:
   m_ObjectHideFlags: 0

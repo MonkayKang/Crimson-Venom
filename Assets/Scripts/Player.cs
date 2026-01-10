@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
     public float pitchMin = 0.9f;
     public float pitchMax = 1.1f;
     public float stepDelay = 0.5f; // delay between steps
-    private float stepTimer; // How long they walked
+    public float stepTimer; // How long they walked
 
     //UI
     public Sprite flashlightOffSprite;  // Sprite when flashlight is off
@@ -74,6 +75,10 @@ public class Player : MonoBehaviour
 
     public float lightDis = 5f; // The raycast distance
     public float angle = 30f; // Angle of flashlight cone 
+
+    // Controller Camera Control
+    public float controllerSensitivity = 120f; // Controller look speed
+    public float stickDeadzone = 0.25f;
 
 
     void Start()
@@ -158,14 +163,14 @@ public class Player : MonoBehaviour
         RectTransform slotTransform3 = thirdSLOT.GetComponent<RectTransform>(); // Gets the size of the image
 
         // Check if player is moving (on ground and not zero velocity)
-        bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
+        // bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
 
         if (GadgetANIM)
         {
             StartCoroutine(WaitfewSeconds());
         }
 
-        if (isMoving)
+        /* if (isMoving)
         {
             stepTimer -= Time.deltaTime;
 
@@ -175,11 +180,11 @@ public class Player : MonoBehaviour
                 source2.PlayOneShot(WalkingAudio);
                 stepTimer = stepDelay;
             }
-        }
+        } 
         else
         {
             stepTimer = 0f; // reset timer when stopping
-        }
+        } */
 
         if (isOn)
         {
@@ -216,17 +221,63 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Mouse Look
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        // Camera Control
+
+        // Right stick input
+        float stickX = Input.GetAxis("RightStickX");
+        float stickY = Input.GetAxis("RightStickY");
+
+        // so camera doesn't drift
+        if (Mathf.Abs(stickX) < stickDeadzone) stickX = 0f;
+        if (Mathf.Abs(stickY) < stickDeadzone) stickY = 0f;
+
+        // Scale controller properly (frame-rate independent)
+        stickX *= controllerSensitivity * Time.deltaTime;
+        stickY *= controllerSensitivity * Time.deltaTime;
 
         // Rotate player horizontally
-        transform.Rotate(Vector3.up * mouseX);
+        transform.Rotate(Vector3.up * stickX);
 
-        // Rotate camera vertically 
-        xRotation -= mouseY;
+        // Rotate camera vertically
+        xRotation -= stickY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        // Movement Control
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        controller.Move(move * speed * Time.deltaTime);
+
+        // Walk Audio (Keyboard + Joystick)
+        bool isMoving = move.magnitude > 0.1f; // Checks if player is moving (stick deadzone included)
+
+        if (isMoving)
+        {
+            stepTimer -= Time.deltaTime;
+
+            if (stepTimer <= 0f)
+            {
+                source2.pitch = Random.Range(pitchMin, pitchMax); // Slight pitch variation for realism
+                source2.PlayOneShot(WalkingAudio); // Play walking sound
+                stepTimer = stepDelay; // Reset timer for next step
+            }
+        }
+        else
+        {
+            stepTimer = 0f; // Reset timer when player stops moving
+        }
+        // Ground Check
+
+        isGrounded = controller.isGrounded;
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
 
         // Flashlight follows camera
         if (flashlight != null)
@@ -240,12 +291,6 @@ public class Player : MonoBehaviour
         {
             velocity.y = -2f;
         }
-
-        // Movement Input
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * speed * Time.deltaTime);
 
         // Apply Gravity
         velocity.y += gravity * Time.deltaTime;
@@ -363,6 +408,17 @@ public class Player : MonoBehaviour
     public void Pickup()
     {
         if (Input.GetKeyDown(KeyCode.E) && Flashlight != null)
+        {
+            source.PlayOneShot(clip3);
+            hasFlashlight = true; // Player has Flashlight
+            Destroy(Flashlight); // Remove the pickup from the world
+            Flashlight = null; // Flashlight (Paint) is gone
+            nearFlashlight = false; // No longer near the flashlight (Its gone)
+            UICounter.taskCounter++; // New Task
+            DialogueUI.pickRANGE = false; // Set it back to false for other UI
+        }
+
+        if (Input.GetButtonDown("Interact") && Flashlight != null)
         {
             source.PlayOneShot(clip3);
             hasFlashlight = true; // Player has Flashlight
