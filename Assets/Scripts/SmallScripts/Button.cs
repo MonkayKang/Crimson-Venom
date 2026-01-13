@@ -17,7 +17,11 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Quit"))
+            Application.Quit();
+
+        if (Input.GetButtonDown("Interact"))
+            SceneManager.LoadScene("Cutscene");
     }
 
     public void OnButtonPress()

@@ -33,7 +33,7 @@ public class Lever : MonoBehaviour
     {
         if (inrange && playerLEVER) // if in range and player has a lever
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("Interact"))
             {
                 source.PlayOneShot(clip);
                 if (UI != null)
@@ -78,7 +78,7 @@ public class Lever : MonoBehaviour
             }
         }
 
-        if (inrange && isPickup && Input.GetKeyDown(KeyCode.E)) // If the player is in range and the lever is a pick up object
+        if (inrange && isPickup && Input.GetButtonDown("Interact")) // If the player is in range and the lever is a pick up object
         {
                 Lobjects.SetActive(true);
                 Uobjects1.SetActive(false);

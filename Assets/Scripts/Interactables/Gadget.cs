@@ -66,7 +66,7 @@ public class Gadget : MonoBehaviour
     {
         if (!isHandheld && nearPlayer)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("Interact"))
             {
                 Player.gadgetON = true; // One time use
                 Player.hasGadget = true;

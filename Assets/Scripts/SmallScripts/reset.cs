@@ -19,5 +19,11 @@ public class reset : MonoBehaviour
             SceneManager.LoadScene("StartScreen"); // Restart
             Cursor.lockState = CursorLockMode.None;
         }
+
+        if (Input.GetButtonDown("Reset"))
+        {
+            SceneManager.LoadScene("StartScreen"); // Restart
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

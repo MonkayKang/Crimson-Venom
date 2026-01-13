@@ -29,7 +29,7 @@ public class InsertKey : MonoBehaviour
     {
         if (rDoorON && rdoonRADIUS)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("Interact"))
             {
                 LightPulse.Powered = true; // Lights are powered
                 _anim.SetTrigger("InsertKey"); // Play the animation

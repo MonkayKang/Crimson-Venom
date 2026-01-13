@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
         if (timeSTOP)
         {
             Time.timeScale = 0f; // if Timestop is true, then time will stop
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("Interact"))
             {
                 // GameObject.Find("---ZOOMUI---").SetActive(false);
                 // GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
@@ -307,7 +307,7 @@ public class Player : MonoBehaviour
             Pickup();
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && hasFlashlight) // Flashlight 
+        if (Input.GetButtonDown("Flashlight") && hasFlashlight) // Flashlight 
         {
             isOn = !isOn; // The bool of which, Is it on or not
 
@@ -330,7 +330,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && hasGadget || gadgetON)
+        if (Input.GetButtonDown("Square") && hasGadget || gadgetON)
         {
             slotTransform2.sizeDelta = new Vector2(320f, 320f); // secondSlot image size is increase 
             slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
@@ -341,7 +341,7 @@ public class Player : MonoBehaviour
             isOn = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.H)) // Lever
+        if (Input.GetButtonDown("Triangle") && Lever.playerLEVER)  // Lever
         {
             gadgetON = false;
             slotTransform2.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
@@ -407,16 +407,6 @@ public class Player : MonoBehaviour
 
     public void Pickup()
     {
-        if (Input.GetKeyDown(KeyCode.E) && Flashlight != null)
-        {
-            source.PlayOneShot(clip3);
-            hasFlashlight = true; // Player has Flashlight
-            Destroy(Flashlight); // Remove the pickup from the world
-            Flashlight = null; // Flashlight (Paint) is gone
-            nearFlashlight = false; // No longer near the flashlight (Its gone)
-            UICounter.taskCounter++; // New Task
-            DialogueUI.pickRANGE = false; // Set it back to false for other UI
-        }
 
         if (Input.GetButtonDown("Interact") && Flashlight != null)
         {

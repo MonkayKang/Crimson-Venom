@@ -18,7 +18,7 @@ public class TrackTog : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && inside)
+        if (Input.GetButtonDown("Interact") && inside)
         {
             Destroy(gameObject); // Destroy itself
         }

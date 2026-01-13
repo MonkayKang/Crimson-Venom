@@ -35,7 +35,7 @@ public class Backup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nearPLAYER && Input.GetKeyDown(KeyCode.E))
+        if (nearPLAYER && Input.GetButtonDown("Interact"))
         {
             if (source != null)
                 source.PlayOneShot(pickSFX); // Play the SFX

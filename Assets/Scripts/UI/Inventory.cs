@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour
         }
 
         // Toggle inventory on ESC
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Menu"))
         {
             // If new item notification is on, clear it when opening
             if (newITEM)
@@ -62,6 +62,14 @@ public class Inventory : MonoBehaviour
 
         if (isActive) // if Inventory is Active
         {
+            if (Input.GetButtonDown("3rdSlot")) // When press L1, go to the left button
+            {
+                SWITCH1();
+            }
+            if (Input.GetButtonDown("2ndSlot")) // When press R1, go to the right button
+            {
+                SWITCH2();
+            }
             Cursor.lockState = CursorLockMode.None; // Unlock cursor
         }
 

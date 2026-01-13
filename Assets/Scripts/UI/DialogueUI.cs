@@ -30,7 +30,7 @@ public class DialogueUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E) && !destroyable && !isExpection) // if it range of Trigger, Press E, and to prevent it from being destroyed.
+        if (inRange && Input.GetButtonDown("Interact") && !destroyable && !isExpection) // if it range of Trigger, Press E, and to prevent it from being destroyed.
         {
             if (source != null) // Play the temp audio (FOR LOCKER)
             {

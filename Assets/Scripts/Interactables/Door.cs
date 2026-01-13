@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
             StartCoroutine(Delay()); // Give a few sec to see if jumpscares appear
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && playerNear)
+        if (Input.GetButtonDown("Interact") && playerNear)
         {
             if (open)
             {
