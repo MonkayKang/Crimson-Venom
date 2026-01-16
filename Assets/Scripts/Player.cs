@@ -80,6 +80,11 @@ public class Player : MonoBehaviour
     public float controllerSensitivity = 120f; // Controller look speed
     public float stickDeadzone = 0.25f;
 
+    // Mouse Camera Control
+    public float mouseSensitivityX = 100f;
+    public float mouseSensitivityY = 100f;
+    public float maxLookPerFrame = 8f; // prevents instant flips
+
 
     void Start()
     {
@@ -116,10 +121,14 @@ public class Player : MonoBehaviour
         hasFlashlight = false; // Reusable when resetting the game
         hasGadget = false; // resting the game variable
         gadgetON = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
+
         if (timeSTOP)
         {
             Time.timeScale = 0f; // if Timestop is true, then time will stop
@@ -223,23 +232,31 @@ public class Player : MonoBehaviour
 
         // Camera Control
 
-        // Right stick input
+        // Controller input
         float stickX = Input.GetAxis("RightStickX");
         float stickY = Input.GetAxis("RightStickY");
 
-        // so camera doesn't drift
+        // Mouse input
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+
+        // Deadzone for controller
         if (Mathf.Abs(stickX) < stickDeadzone) stickX = 0f;
         if (Mathf.Abs(stickY) < stickDeadzone) stickY = 0f;
 
-        // Scale controller properly (frame-rate independent)
+        // Scale controller
         stickX *= controllerSensitivity * Time.deltaTime;
         stickY *= controllerSensitivity * Time.deltaTime;
 
-        // Rotate player horizontally
-        transform.Rotate(Vector3.up * stickX);
+        // Combine inputs
+        float lookX = Mathf.Clamp(stickX + mouseX, -maxLookPerFrame, maxLookPerFrame);
+        float lookY = Mathf.Clamp(stickY + mouseY, -maxLookPerFrame, maxLookPerFrame);
 
-        // Rotate camera vertically
-        xRotation -= stickY;
+        // Rotate player (horizontal)
+        transform.Rotate(Vector3.up * lookX);
+
+        // Rotate camera (vertical)
+        xRotation -= lookY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
