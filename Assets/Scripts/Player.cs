@@ -270,9 +270,10 @@ public class Player : MonoBehaviour
         // Walk Audio (Keyboard + Joystick)
         bool isMoving = move.magnitude > 0.1f; // Checks if player is moving (stick deadzone included)
 
+        //  Step Audio
         if (isMoving)
         {
-            stepTimer -= Time.deltaTime;
+            stepTimer -= Time.deltaTime; // For every movment. minus the time
 
             if (stepTimer <= 0f)
             {
