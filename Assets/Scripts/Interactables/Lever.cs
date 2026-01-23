@@ -35,46 +35,11 @@ public class Lever : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact"))
             {
-                source.PlayOneShot(clip);
-                if (UI != null)
-                {
-                    UI.SetActive(false);
-                }
-                if (DestroyOBJ != null)
-                {
-                    Destroy(DestroyOBJ);
-                }
-
-                if (Uobjects1 != null && Uobjects2 != null)
-                {
-                    Uobjects1.SetActive(false);
-                    Uobjects2.SetActive(false);
-                }
-
                 if (Lobjects != null)
                 {
                     Lobjects.SetActive(true);
                 }
-
-                if (UnloadPLURAL != null)
-                {
-                    foreach (GameObject obj in UnloadPLURAL)
-                    {
-                        obj.SetActive(false);
-                    }
-                }
-
-                playerLEVER = false;
-
-                //  Reset lever in player's hand + UI
-                Player playerScript = FindObjectOfType<Player>();
-                if (playerScript != null)
-                {
-                    playerScript.LeverItem.SetActive(false);
-                    playerScript.thirdSLOT.sprite = playerScript.blankUI;
-                    RectTransform slotTransform3 = playerScript.thirdSLOT.GetComponent<RectTransform>();
-                    slotTransform3.sizeDelta = new Vector2(250f, 250f);
-                }
+                StartCoroutine(CurtainFailure());
             }
         }
 
@@ -113,5 +78,51 @@ public class Lever : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject); // Destroy itself
+    }
+
+    IEnumerator CurtainFailure()
+    {
+        yield return new WaitForSeconds(8.54f); // Wait 8.5 sec
+        source.PlayOneShot(clip);
+        if (UI != null)
+        {
+            UI.SetActive(false);
+        }
+        if (DestroyOBJ != null)
+        {
+            Destroy(DestroyOBJ);
+        }
+
+        if (Uobjects1 != null && Uobjects2 != null)
+        {
+            Uobjects1.SetActive(false);
+            Uobjects2.SetActive(false);
+        }
+
+        if (UnloadPLURAL != null)
+        {
+            foreach (GameObject obj in UnloadPLURAL)
+            {
+                obj.SetActive(false);
+            }
+        }
+
+        playerLEVER = false;
+
+        //  Reset lever in player's hand + UI
+        Player playerScript = FindObjectOfType<Player>();
+        if (playerScript != null)
+        {
+            playerScript.LeverItem.SetActive(false);
+            playerScript.thirdSLOT.sprite = playerScript.blankUI;
+            RectTransform slotTransform3 = playerScript.thirdSLOT.GetComponent<RectTransform>();
+            slotTransform3.sizeDelta = new Vector2(250f, 250f);
+        }
+        yield return new WaitForSeconds(2.9f); // Wait 3 sec
+
+        if (Lobjects != null)
+        {
+            Lobjects.SetActive(false); // Turn it off
+        }
     }
 }

@@ -446,6 +446,18 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Lose");
         }
+
+        Rigidbody rb = hit.collider.attachedRigidbody;
+
+        if (rb == null || rb.isKinematic) // if it hits anything that doesnt move
+            return;
+
+        // prevent pushing downwards
+        if (hit.moveDirection.y < -0.3f) 
+            return;
+
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z); // Use the momentum to
+        rb.AddForce(pushDir * 5f, ForceMode.Impulse); // Add force
     }
 
     IEnumerator WaitfewSeconds()
