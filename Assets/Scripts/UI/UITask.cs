@@ -8,10 +8,13 @@ public class NewBehaviourScript : MonoBehaviour
     public TextMeshProUGUI TaskText;
     public float delay = 0.05f; // Delay between letters
 
+    public static bool hasKey;
+
     private string words;
 
     void Start()
     {
+        hasKey = false; // For replayability
         words = "Objective: Find a way to escape the carnival";
         StartCoroutine(TypeText(words, TaskText));
     }
