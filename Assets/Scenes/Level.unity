@@ -1053,7 +1053,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.855
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1206,10 +1206,10 @@ MonoBehaviour:
   clip1: {fileID: 8300000, guid: ea087c6e17c5e714b99f373c06f78803, type: 3}
   clip2: {fileID: 8300000, guid: 3967638ff570df7438baa009b63160c7, type: 3}
   clip3: {fileID: 8300000, guid: ced9b1641b40aa143bd8ea953efcba06, type: 3}
-  WalkingAudio: {fileID: 8300000, guid: 732715b07c75a864f85078ccde6829e1, type: 3}
+  WalkingAudio: {fileID: 8300000, guid: 27e605a561a5db545b230a55a1dfe2d0, type: 3}
   pitchMin: 0.9
   pitchMax: 1.1
-  stepDelay: 0.5
+  stepDelay: 0.55
   stepTimer: 5
   flashlightOffSprite: {fileID: 21300000, guid: ab9c1dc53d3d4234a858882cc1778f77, type: 3}
   flashlightOnSprite: {fileID: 21300000, guid: 9989827eacea62640aacfe61f6e1cc56, type: 3}
@@ -34912,9 +34912,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5c9e057d250dc16498707b0194ba3e6e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a4896cd93327d174588fa68e72d6a9de, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.532
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -34923,7 +34923,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 14.00523
+  MaxDistance: 5.26
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
