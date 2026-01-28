@@ -11,6 +11,7 @@ TagManager:
   - Damage
   - Gadget
   - Lever
+  - KeypadButton
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Gadget
   - IgnoreLights
   - Poster
-  - 
+  - Keypad
   - 
   - 
   - 
