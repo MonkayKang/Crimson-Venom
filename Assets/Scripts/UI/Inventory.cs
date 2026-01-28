@@ -20,6 +20,11 @@ public class Inventory : MonoBehaviour
 
     public static bool newITEM; // If it has new item
 
+    // Buttons
+    public GameObject HelpButton;
+    public GameObject InventoryButton;
+    public GameObject ExitButton;
+
     // Bool
     private bool isActive;
 
@@ -34,7 +39,12 @@ public class Inventory : MonoBehaviour
     {
         newITEM = false;
         InventoryUI.sprite = defaultUI; // Go to default
+
         InventoryPanel.SetActive(false); // Make sure it starts hidden
+        HelpButton.SetActive(false); // Make sure it starts hidden
+        InventoryButton.SetActive(false); // Make sure it starts hidden
+        ExitButton.SetActive(false);
+
         // InventoryPanel2.SetActive(false); // Make sure it starts hidden
     }
 
@@ -72,30 +82,28 @@ public class Inventory : MonoBehaviour
             }
             Cursor.lockState = CursorLockMode.None; // Unlock cursor
         }
-
-        if (!isActive)
-        {
-            Cursor.lockState = CursorLockMode.Locked; // Lock cursor for gameplay
-        }
     }
 
     void ToggleInventory()
     {
         isOpen = !isOpen;
         InventoryPanel.SetActive(isOpen);
+        HelpButton.SetActive(isOpen); 
+        InventoryButton.SetActive(isOpen); // Follows Opening 
+        ExitButton.SetActive(isOpen);
 
         if (isOpen)
         {
-            audSOURCE.PlayOneShot(backpackOpenSFX);
-            Time.timeScale = 0f; // Stop time but allow UI interaction
+            Time.timeScale = 0f;
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             isActive = true;
         }
         else
         {
-            audSOURCE.PlayOneShot(backpackCloseSFX);
-            Time.timeScale = 1f; // Resume time
+            Time.timeScale = 1f;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             isActive = false;
         }
     }
