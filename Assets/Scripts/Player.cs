@@ -66,7 +66,9 @@ public class Player : MonoBehaviour
     public static bool gadgetON;
 
     public static bool GadgetANIM; // Coutine
-    public static bool timeSTOP; // Did time stop
+    public static bool timeSTOP; // Did time stop OLD
+
+    public static bool STOP; // Time Stop NEW;
 
     // Float
     private float originalHeight;
@@ -88,6 +90,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        STOP = false;
         // Make time continue 
         timeSTOP = false;
 
@@ -128,269 +131,272 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-        if (timeSTOP)
+        if (!STOP) // So long as time is stopped
         {
-            Time.timeScale = 0f; // if Timestop is true, then time will stop
-            if (Input.GetButtonDown("Interact"))
+            if (timeSTOP)
             {
-                // GameObject.Find("---ZOOMUI---").SetActive(false);
-                // GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
-                timeSTOP = false; // Time continues
-            }
-        }
-        if (!timeSTOP)
-        {
-            Time.timeScale = 1f; // if Timestop is false, then time will continue
-        }
-
-
-        // UI will change if they have the objects
-        if (hasFlashlight)
-        {
-            firstSLOT.sprite = flashlightUI;
-        }
-
-        if (hasGadget)
-        {
-            secondSLOT.sprite = gadgetUI;
-        }
-
-        if (Lever.playerLEVER)
-        {
-            thirdSLOT.sprite = leverUI;
-        }
-
-        if (!Lever.playerLEVER)
-        {
-            thirdSLOT.sprite = blankUI;
-        }
-
-        // Slot Sizes
-        RectTransform slotTransform = firstSLOT.GetComponent<RectTransform>(); // Gets the size of the image
-        RectTransform slotTransform2 = secondSLOT.GetComponent<RectTransform>(); // Gets the size of the image
-        RectTransform slotTransform3 = thirdSLOT.GetComponent<RectTransform>(); // Gets the size of the image
-
-        // Check if player is moving (on ground and not zero velocity)
-        // bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
-
-        if (GadgetANIM)
-        {
-            StartCoroutine(WaitfewSeconds());
-        }
-
-        /* if (isMoving)
-        {
-            stepTimer -= Time.deltaTime;
-
-            if (stepTimer <= 0f)
-            {
-                source2.pitch = Random.Range(pitchMin, pitchMax);
-                source2.PlayOneShot(WalkingAudio);
-                stepTimer = stepDelay;
-            }
-        } 
-        else
-        {
-            stepTimer = 0f; // reset timer when stopping
-        } */
-
-        if (isOn)
-        {
-            // Number of rays to show on each side
-            int raysPerSide = 3;
-
-            // Step angle between each ray
-            float step = angle / raysPerSide;
-
-            for (int i = -raysPerSide; i <= raysPerSide; i++) // For each rays
-            {
-                Quaternion rotation = Quaternion.Euler(0, i * step, 0);
-                Vector3 dir = rotation * cameraTransform.forward;
-                Debug.DrawRay(transform.position + Vector3.up * .5f, dir * lightDis, Color.yellow); // Draw the rays (For my purpose only)
-
-                if (Physics.Raycast(transform.position + Vector3.up * .5f, dir, out RaycastHit hit, lightDis)) // Shoot a raycast
+                Time.timeScale = 0f; // if Timestop is true, then time will stop
+                if (Input.GetButtonDown("Interact"))
                 {
-                    if (hit.collider.CompareTag("Damage")) // If it hits the tag "Damage"
+                    // GameObject.Find("---ZOOMUI---").SetActive(false);
+                    // GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
+                    timeSTOP = false; // Time continues
+                }
+            }
+            if (!timeSTOP)
+            {
+                Time.timeScale = 1f; // if Timestop is false, then time will continue
+            }
+
+
+            // UI will change if they have the objects
+            if (hasFlashlight)
+            {
+                firstSLOT.sprite = flashlightUI;
+            }
+
+            if (hasGadget)
+            {
+                secondSLOT.sprite = gadgetUI;
+            }
+
+            if (Lever.playerLEVER)
+            {
+                thirdSLOT.sprite = leverUI;
+            }
+
+            if (!Lever.playerLEVER)
+            {
+                thirdSLOT.sprite = blankUI;
+            }
+
+            // Slot Sizes
+            RectTransform slotTransform = firstSLOT.GetComponent<RectTransform>(); // Gets the size of the image
+            RectTransform slotTransform2 = secondSLOT.GetComponent<RectTransform>(); // Gets the size of the image
+            RectTransform slotTransform3 = thirdSLOT.GetComponent<RectTransform>(); // Gets the size of the image
+
+            // Check if player is moving (on ground and not zero velocity)
+            // bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
+
+            if (GadgetANIM)
+            {
+                StartCoroutine(WaitfewSeconds());
+            }
+
+            /* if (isMoving)
+            {
+                stepTimer -= Time.deltaTime;
+
+                if (stepTimer <= 0f)
+                {
+                    source2.pitch = Random.Range(pitchMin, pitchMax);
+                    source2.PlayOneShot(WalkingAudio);
+                    stepTimer = stepDelay;
+                }
+            } 
+            else
+            {
+                stepTimer = 0f; // reset timer when stopping
+            } */
+
+            if (isOn)
+            {
+                // Number of rays to show on each side
+                int raysPerSide = 3;
+
+                // Step angle between each ray
+                float step = angle / raysPerSide;
+
+                for (int i = -raysPerSide; i <= raysPerSide; i++) // For each rays
+                {
+                    Quaternion rotation = Quaternion.Euler(0, i * step, 0);
+                    Vector3 dir = rotation * cameraTransform.forward;
+                    Debug.DrawRay(transform.position + Vector3.up * .5f, dir * lightDis, Color.yellow); // Draw the rays (For my purpose only)
+
+                    if (Physics.Raycast(transform.position + Vector3.up * .5f, dir, out RaycastHit hit, lightDis)) // Shoot a raycast
                     {
-                        SecAI target = hit.collider.GetComponent<SecAI>(); // Find that objects script
-                        EnemyAI target2 = hit.collider.GetComponent<EnemyAI>(); // If its the other AI
-
-                        if (target != null)
+                        if (hit.collider.CompareTag("Damage")) // If it hits the tag "Damage"
                         {
-                            target.hitTIMER = Mathf.Min(target.hitTIMER + 0.2f, 100f); // Adds. MAX 
-                        }
+                            SecAI target = hit.collider.GetComponent<SecAI>(); // Find that objects script
+                            EnemyAI target2 = hit.collider.GetComponent<EnemyAI>(); // If its the other AI
 
-                        if (target2 != null)
-                        {
-                            target2.hitTIMER = Mathf.Min(target2.hitTIMER + 0.2f, 100f); // Adds. MAX 
+                            if (target != null)
+                            {
+                                target.hitTIMER = Mathf.Min(target.hitTIMER + 0.2f, 100f); // Adds. MAX 
+                            }
+
+                            if (target2 != null)
+                            {
+                                target2.hitTIMER = Mathf.Min(target2.hitTIMER + 0.2f, 100f); // Adds. MAX 
+                            }
                         }
                     }
                 }
             }
-        }
 
-        // Camera Control
+            // Camera Control
 
-        // Controller input
-        float stickX = Input.GetAxis("RightStickX");
-        float stickY = Input.GetAxis("RightStickY");
+            // Controller input
+            float stickX = Input.GetAxis("RightStickX");
+            float stickY = Input.GetAxis("RightStickY");
 
-        // Mouse input
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+            // Mouse input
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
-        // Deadzone for controller
-        if (Mathf.Abs(stickX) < stickDeadzone) stickX = 0f;
-        if (Mathf.Abs(stickY) < stickDeadzone) stickY = 0f;
+            // Deadzone for controller
+            if (Mathf.Abs(stickX) < stickDeadzone) stickX = 0f;
+            if (Mathf.Abs(stickY) < stickDeadzone) stickY = 0f;
 
-        // Scale controller
-        stickX *= controllerSensitivity * Time.deltaTime;
-        stickY *= controllerSensitivity * Time.deltaTime;
+            // Scale controller
+            stickX *= controllerSensitivity * Time.deltaTime;
+            stickY *= controllerSensitivity * Time.deltaTime;
 
-        // Combine inputs
-        float lookX = Mathf.Clamp(stickX + mouseX, -maxLookPerFrame, maxLookPerFrame);
-        float lookY = Mathf.Clamp(stickY + mouseY, -maxLookPerFrame, maxLookPerFrame);
+            // Combine inputs
+            float lookX = Mathf.Clamp(stickX + mouseX, -maxLookPerFrame, maxLookPerFrame);
+            float lookY = Mathf.Clamp(stickY + mouseY, -maxLookPerFrame, maxLookPerFrame);
 
-        // Rotate player (horizontal)
-        transform.Rotate(Vector3.up * lookX);
+            // Rotate player (horizontal)
+            transform.Rotate(Vector3.up * lookX);
 
-        // Rotate camera (vertical)
-        xRotation -= lookY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            // Rotate camera (vertical)
+            xRotation -= lookY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Movement Control
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+            // Movement Control
+            float moveX = Input.GetAxis("Horizontal");
+            float moveZ = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * speed * Time.deltaTime);
+            Vector3 move = transform.right * moveX + transform.forward * moveZ;
+            controller.Move(move * speed * Time.deltaTime);
 
-        // Walk Audio (Keyboard + Joystick)
-        bool isMoving = move.magnitude > 0.1f; // Checks if player is moving (stick deadzone included)
+            // Walk Audio (Keyboard + Joystick)
+            bool isMoving = move.magnitude > 0.1f; // Checks if player is moving (stick deadzone included)
 
-        //  Step Audio
-        if (isMoving)
-        {
-            stepTimer -= Time.deltaTime; // For every movment. minus the time
-
-            if (stepTimer <= 0f)
+            //  Step Audio
+            if (isMoving)
             {
-                source2.pitch = Random.Range(pitchMin, pitchMax); // Slight pitch variation for realism
-                source2.PlayOneShot(WalkingAudio); // Play walking sound
-                stepTimer = stepDelay; // Reset timer for next step
-            }
-        }
-        else
-        {
-            stepTimer = 0f; // Reset timer when player stops moving
-        }
-        // Ground Check
+                stepTimer -= Time.deltaTime; // For every movment. minus the time
 
-        isGrounded = controller.isGrounded;
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-        // Flashlight follows camera
-        if (flashlight != null)
-        {
-            flashlight.rotation = cameraTransform.rotation;
-        }
-
-        // Ground Check
-        isGrounded = controller.isGrounded;
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        // Apply Gravity
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-        // Pickup flashlight when nearby
-        if (nearFlashlight)
-        {
-            Pickup();
-        }
-
-        if (nearDart)
-        {
-            Pickup();
-        }
-
-        if (Input.GetButtonDown("Flashlight") && hasFlashlight) // Flashlight 
-        {
-            isOn = !isOn; // The bool of which, Is it on or not
-
-            ItemFlashlight.SetActive(isOn);
-            if (isOn)
-            {
-                gadgetON = false;
-                slotTransform.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase 
-                Gadget.SetActive(false); // The gadget is off
-                LeverItem.SetActive(false); // The lever is off
-                slotTransform2.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
-                slotTransform3.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
-                source.PlayOneShot(clip1); // On SFX
+                if (stepTimer <= 0f)
+                {
+                    source2.pitch = Random.Range(pitchMin, pitchMax); // Slight pitch variation for realism
+                    source2.PlayOneShot(WalkingAudio); // Play walking sound
+                    stepTimer = stepDelay; // Reset timer for next step
+                }
             }
             else
             {
-                slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
-                // firstSlot image size is return back
-                source.PlayOneShot(clip2); // Off SFX
+                stepTimer = 0f; // Reset timer when player stops moving
             }
-        }
+            // Ground Check
 
-        if (Input.GetButtonDown("Square") && hasGadget || gadgetON)
-        {
-            slotTransform2.sizeDelta = new Vector2(320f, 320f); // secondSlot image size is increase 
-            slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
-            slotTransform3.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
-            ItemFlashlight.SetActive(false); // Gadget
-            Gadget.SetActive(true);
-            LeverItem.SetActive(false); // The lever is off
-            isOn = false;
-        }
-
-        if (Input.GetButtonDown("Triangle") && Lever.playerLEVER)  // Lever
-        {
-            gadgetON = false;
-            slotTransform2.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
-            slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
-            slotTransform3.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase
-            ItemFlashlight.SetActive(false);
-            Gadget.SetActive(false);
-            if (Lever.playerLEVER == true)
+            isGrounded = controller.isGrounded;
+            if (isGrounded && velocity.y < 0)
             {
-                LeverItem.SetActive(true); // The lever is on
+                velocity.y = -2f;
             }
-            isOn = false;
-        }
 
-        // Crouch
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            if (transform.localScale.y == originalHeight) // If your standing
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+            // Flashlight follows camera
+            if (flashlight != null)
             {
-                // Crouch
+                flashlight.rotation = cameraTransform.rotation;
+            }
+
+            // Ground Check
+            isGrounded = controller.isGrounded;
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
+            // Apply Gravity
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+            // Pickup flashlight when nearby
+            if (nearFlashlight)
+            {
+                Pickup();
+            }
+
+            if (nearDart)
+            {
+                Pickup();
+            }
+
+            if (Input.GetButtonDown("Flashlight") && hasFlashlight) // Flashlight 
+            {
+                isOn = !isOn; // The bool of which, Is it on or not
+
+                ItemFlashlight.SetActive(isOn);
+                if (isOn)
+                {
+                    gadgetON = false;
+                    slotTransform.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase 
+                    Gadget.SetActive(false); // The gadget is off
+                    LeverItem.SetActive(false); // The lever is off
+                    slotTransform2.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
+                    slotTransform3.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
+                    source.PlayOneShot(clip1); // On SFX
+                }
+                else
+                {
+                    slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
+                                                                       // firstSlot image size is return back
+                    source.PlayOneShot(clip2); // Off SFX
+                }
+            }
+
+            if (Input.GetButtonDown("Square") && hasGadget || gadgetON)
+            {
+                slotTransform2.sizeDelta = new Vector2(320f, 320f); // secondSlot image size is increase 
+                slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
+                slotTransform3.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
+                ItemFlashlight.SetActive(false); // Gadget
+                Gadget.SetActive(true);
+                LeverItem.SetActive(false); // The lever is off
+                isOn = false;
+            }
+
+            if (Input.GetButtonDown("Triangle") && Lever.playerLEVER)  // Lever
+            {
+                gadgetON = false;
+                slotTransform2.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
+                slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
+                slotTransform3.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase
+                ItemFlashlight.SetActive(false);
+                Gadget.SetActive(false);
+                if (Lever.playerLEVER == true)
+                {
+                    LeverItem.SetActive(true); // The lever is on
+                }
+                isOn = false;
+            }
+
+            // Crouch
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                if (transform.localScale.y == originalHeight) // If your standing
+                {
+                    // Crouch
+                    speed = 3f;
+                    transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z); // Height becomes 0.5
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftControl)) // If let go of Ctrl
+            {
+                // Stand up
                 speed = 3f;
-                transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z); // Height becomes 0.5
+                transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftControl)) // If let go of Ctrl
-        {
-            // Stand up
-            speed = 3f;
-            transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
-        }
     }
 
     public void OnTriggerEnter(Collider other)
