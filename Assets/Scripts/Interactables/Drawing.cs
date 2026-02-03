@@ -39,6 +39,9 @@ public class Drawing : MonoBehaviour
 
     public GameObject Timeline;
 
+    public AudioSource source;
+    public AudioClip clip;
+
 
     // Start is called before the first frame update
     void Start()
@@ -120,6 +123,8 @@ public class Drawing : MonoBehaviour
                 yellowMAT.material.color = Color.yellow;
                 hasYellow = false;
             }
+
+            source.PlayOneShot(clip);
         }
     }
 

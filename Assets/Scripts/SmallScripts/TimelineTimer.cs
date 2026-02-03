@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class TimelineTimer : MonoBehaviour
 {
-    public int totalDuration = 5; // Duration in seconds, set in Inspector
+    public float totalDuration = 5f;
 
     void Start()
     {
+        Player.STOP = true; // stop player immediately
         StartCoroutine(TimerCoroutine());
     }
 
     IEnumerator TimerCoroutine()
     {
-        // Wait for the set duration
         yield return new WaitForSeconds(totalDuration);
-
-        Player.STOP = false;
+        Player.STOP = false; // resume player
     }
 }

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PaintCans : MonoBehaviour
 {
-    public int PaintColour; // 0=Red, 1=Blue, 2=Green, 3=Yellow, 4=Purple, 5=Orange
+    public int PaintColour; // 0=Red, 1=Blue, 2=Green, 3=Yellow, 4=Orange, 5=Purple
 
     private bool inRange;
+
+    public AudioSource source;
+    public AudioClip clip;
 
 
     // Update is called once per frame
@@ -14,8 +17,7 @@ public class PaintCans : MonoBehaviour
     {
         if (inRange && Input.GetButtonDown("Interact"))
         {
-            if (PaintColour == 0) { 
-            }
+            if (PaintColour == 0)
                 Drawing.hasRed = true;
 
             if (PaintColour == 1)
@@ -28,17 +30,18 @@ public class PaintCans : MonoBehaviour
                 Drawing.hasYellow = true;
 
             if (PaintColour == 4)
-                Drawing.hasPurple = true;
+                Drawing.hasOrange = true;
 
             if (PaintColour == 5)
             {
-                Drawing.hasOrange = true;
+                Drawing.hasPurple = true;
                 // FindObjectOfType<BlackScreen>().ShowBlackScreen(); // Start the fade
             }
                 
 
             Drawing.colourCount += 1;
             Destroy(gameObject);
+            source.PlayOneShot(clip);
         }
     }
 

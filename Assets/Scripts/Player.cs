@@ -90,7 +90,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        STOP = false;
         // Make time continue 
         timeSTOP = false;
 
@@ -131,9 +130,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!STOP) // So long as time is stopped
-        {
-            if (timeSTOP)
+        Debug.Log(STOP.ToString());
+        if (STOP)
+            return; // hard stop, nothing runs
+
+        if (timeSTOP)
             {
                 Time.timeScale = 0f; // if Timestop is true, then time will stop
                 if (Input.GetButtonDown("Interact"))
@@ -395,7 +396,7 @@ public class Player : MonoBehaviour
                 speed = 3f;
                 transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
             }
-        }
+        
 
     }
 

@@ -13,11 +13,6 @@ public class BlackScreen : MonoBehaviour
         StartCoroutine(FadeInOut());
     }
 
-    public void ResumeTime()
-    {
-        Player.STOP = false; // Resume
-    }
-
     IEnumerator FadeInOut()
     {
         Color c = blackImage.color;
