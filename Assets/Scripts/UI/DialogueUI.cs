@@ -47,7 +47,7 @@ public class DialogueUI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Trigger"))
         {
             inRange = true; // In range
             UI.SetActive(true); // Turn on UI
@@ -56,7 +56,7 @@ public class DialogueUI : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Trigger"))
         {
             inRange = false; // No longer in range
             UI.SetActive(false); // Turn off the UI

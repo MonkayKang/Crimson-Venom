@@ -12,6 +12,7 @@ TagManager:
   - Gadget
   - Lever
   - KeypadButton
+  - Trigger
   layers:
   - Default
   - TransparentFX
