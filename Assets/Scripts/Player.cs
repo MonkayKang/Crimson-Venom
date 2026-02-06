@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
     private bool nearDart = false;
     public static bool gadgetON;
 
+    private bool isCrouching = false;
+
     public static bool GadgetANIM; // Coutine
     public static bool timeSTOP; // Did time stop OLD
 
@@ -381,20 +383,21 @@ public class Player : MonoBehaviour
             // Crouch
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                if (transform.localScale.y == originalHeight) // If your standing
+                isCrouching = !isCrouching; // Toggle crouch
+                if (isCrouching) // If your standing
                 {
                     // Crouch
-                    speed = 3f;
+                    speed = 2f;
                     transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z); // Height becomes 0.5
                 }
-            }
-
-            if (Input.GetKeyUp(KeyCode.LeftControl)) // If let go of Ctrl
-            {
+                else if (!isCrouching)
+                {
                 // Stand up
                 speed = 3f;
                 transform.localScale = new Vector3(transform.localScale.x, originalHeight, transform.localScale.z); // Go back to standing
+                }
             }
+
         
 
     }
@@ -408,7 +411,6 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Flashlight"))
         {
-            DialogueUI.pickRANGE = true; // UI now doesn't dissapear until they pick up the item
             nearFlashlight = true; // Bool that tells the player that they can pickup the item
             Flashlight = other.gameObject; // "Paint the Target"
         }
@@ -421,7 +423,6 @@ public class Player : MonoBehaviour
         {
             if (Flashlight == other.gameObject)
             {
-                DialogueUI.pickRANGE = false; // Player is too far away for the UI;
                 Flashlight = null; // "Remove the Paint"
                 nearFlashlight = false; // Outside the range
             }
@@ -431,18 +432,17 @@ public class Player : MonoBehaviour
 
     public void Pickup()
     {
-
         if (Input.GetButtonDown("Interact") && Flashlight != null)
         {
             source.PlayOneShot(clip3);
             hasFlashlight = true; // Player has Flashlight
-            Destroy(Flashlight); // Remove the pickup from the world
-            Flashlight = null; // Flashlight (Paint) is gone
-            nearFlashlight = false; // No longer near the flashlight (Its gone)
-            UICounter.taskCounter++; // New Task
-            DialogueUI.pickRANGE = false; // Set it back to false for other UI
-        }
 
+            GameObject flashlightToDestroy = Flashlight; // store reference
+            Flashlight = null; // Flashlight (Paint) is gone
+            nearFlashlight = false;
+            UICounter.taskCounter++;
+            StartCoroutine(DestroyWait(flashlightToDestroy)); // pass reference
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) // If hits the enemy
@@ -472,5 +472,11 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         Gadget.SetActive(true); // Return Device
         GadgetANIM = false; // Turn off animation
+    }
+
+    IEnumerator DestroyWait(GameObject obj)
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(obj); // safely destroy object
     }
 }

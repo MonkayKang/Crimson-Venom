@@ -42,7 +42,6 @@ public class Toggle : MonoBehaviour
             hasBeenCollected = true;
             UICounter.collectablesCount += 1;
             UICounter.animStart = true;
-            DialogueUI.pickRANGE = false; // Allows usage again.
             StartCoroutine(Wait()); // Wait before destroy
         }
     }
@@ -51,7 +50,6 @@ public class Toggle : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            DialogueUI.pickRANGE = true; // In range for the UI
 
             if (isEnd) // If you collected all the pieces
             {
@@ -75,7 +73,6 @@ public class Toggle : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        DialogueUI.pickRANGE = false; // Player not in range for UI
         if (isCollectable)
             playerInRange = false;
 
