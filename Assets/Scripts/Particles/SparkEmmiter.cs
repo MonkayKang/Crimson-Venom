@@ -5,29 +5,50 @@ using UnityEngine;
 public class SparkEmmiter : MonoBehaviour
 {
     public GameObject sparkPrefab;
-    public int sparkPerSecond = 10;
 
-    float timer;
+    public int minSparks = 5;
+    public int maxSparks = 20;
 
-    void Update()
+    public float minBurstDelay = 0.2f;
+    public float maxBurstDelay = 1.0f;
+
+    public float minForce = 2f;
+    public float maxForce = 6f;
+
+    void Start()
     {
-        timer += Time.deltaTime;
+        StartCoroutine(BurstRoutine());
+    }
 
-        float interval = 1f / sparkPerSecond;
-
-        while (timer >= interval)
+    IEnumerator BurstRoutine()
+    {
+        while (true)
         {
-            timer -= interval;
-            SpawnSpark();
+            yield return new WaitForSeconds(Random.Range(minBurstDelay, maxBurstDelay));
+
+            int sparkCount = Random.Range(minSparks, maxSparks + 1);
+
+            for (int i = 0; i < sparkCount; i++)
+            {
+                SpawnSpark();
+            }
         }
     }
 
     void SpawnSpark()
     {
-        Instantiate(
+        GameObject spark = Instantiate(
             sparkPrefab,
             transform.position,
             Quaternion.identity
         );
+
+        Rigidbody rb = spark.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            Vector3 randomDir = Random.onUnitSphere;
+            float force = Random.Range(minForce, maxForce);
+            rb.AddForce(randomDir * force, ForceMode.Impulse);
+        }
     }
 }

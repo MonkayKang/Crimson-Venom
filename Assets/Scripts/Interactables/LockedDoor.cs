@@ -12,8 +12,6 @@ public class LockedDoor : MonoBehaviour // SAME AS INTERACTABLES BUT WITH A LOCK
     private AudioSource source;
     public AudioClip UnlockSFX;
 
-    public bool isKey;
-
 
     private void Start()
     {
