@@ -46,7 +46,11 @@ public class SparkEmmiter : MonoBehaviour
         Rigidbody rb = spark.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 randomDir = Random.onUnitSphere;
+            Vector3 randomDir = new Vector3(
+                Random.Range(-1f, 1f),   // X spread
+                Random.Range(0.5f, 1f),  // Y bias UP
+                Random.Range(-1f, 1f)    // Z spread
+            ).normalized;
             float force = Random.Range(minForce, maxForce);
             rb.AddForce(randomDir * force, ForceMode.Impulse);
         }
