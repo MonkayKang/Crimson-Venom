@@ -33,7 +33,7 @@ public class Lever : MonoBehaviour
     {
         if (inrange && playerLEVER) // if in range and player has a lever
         {
-            if (Input.GetButtonDown("Interact"))
+            if (Input.GetButtonDown("Interact") && Player.leverHOLDING) // if they interact while holding the lever
             {
                 if (Lobjects != null)
                 {
@@ -82,7 +82,7 @@ public class Lever : MonoBehaviour
 
     IEnumerator CurtainFailure()
     {
-        yield return new WaitForSeconds(8.54f); // Wait 8.5 sec
+        yield return new WaitForSeconds(6.05f); // Wait 8.5 sec
         source.PlayOneShot(clip);
         if (UI != null)
         {
@@ -118,7 +118,7 @@ public class Lever : MonoBehaviour
             RectTransform slotTransform3 = playerScript.thirdSLOT.GetComponent<RectTransform>();
             slotTransform3.sizeDelta = new Vector2(250f, 250f);
         }
-        yield return new WaitForSeconds(2.9f); // Wait 3 sec
+        yield return new WaitForSeconds(2.52f); // Wait 3 sec
 
         if (Lobjects != null)
         {

@@ -72,6 +72,8 @@ public class Player : MonoBehaviour
 
     public static bool STOP; // Time Stop NEW;
 
+    public static bool leverHOLDING; // Is the player holding the lever
+
     // Float
     private float originalHeight;
     public float crouchHeight = 0.5f;
@@ -125,6 +127,7 @@ public class Player : MonoBehaviour
         hasFlashlight = false; // Reusable when resetting the game
         hasGadget = false; // resting the game variable
         gadgetON = false;
+        leverHOLDING = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -342,6 +345,7 @@ public class Player : MonoBehaviour
                     slotTransform.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase 
                     Gadget.SetActive(false); // The gadget is off
                     LeverItem.SetActive(false); // The lever is off
+                    leverHOLDING = false; // Not holding lever
                     slotTransform2.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
                     slotTransform3.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
                     source.PlayOneShot(clip1); // On SFX
@@ -363,6 +367,7 @@ public class Player : MonoBehaviour
                 Gadget.SetActive(true);
                 LeverItem.SetActive(false); // The lever is off
                 isOn = false;
+                leverHOLDING = false; // Is not holding lever
             }
 
             if (Input.GetButtonDown("Triangle") && Lever.playerLEVER)  // Lever
@@ -376,6 +381,7 @@ public class Player : MonoBehaviour
                 if (Lever.playerLEVER == true)
                 {
                     LeverItem.SetActive(true); // The lever is on
+                    leverHOLDING = true; // Is holding the lever
                 }
                 isOn = false;
             }
