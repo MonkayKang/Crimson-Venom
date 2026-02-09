@@ -10213,8 +10213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sparkPrefab: {fileID: 788145098169044415, guid: bde77ed5f5bcc2a4f8d5b7c2c8d44da2, type: 3}
-  minSparks: 1
-  maxSparks: 4
+  minSparks: 3
+  maxSparks: 8
   minBurstDelay: 0.5
   maxBurstDelay: 2
   minForce: 5
