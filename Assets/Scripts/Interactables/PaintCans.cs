@@ -35,11 +35,8 @@ public class PaintCans : MonoBehaviour
             if (PaintColour == 5)
             {
                 Drawing.hasPurple = true;
-                // FindObjectOfType<BlackScreen>().ShowBlackScreen(); // Start the fade
+                Drawing.colourCount += 1;
             }
-                
-
-            Drawing.colourCount += 1;
             Destroy(gameObject);
             source.PlayOneShot(clip);
         }

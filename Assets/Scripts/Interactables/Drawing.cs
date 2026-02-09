@@ -86,6 +86,7 @@ public class Drawing : MonoBehaviour
             if (hasRed)
             {
                 redMAT.material.color = Color.red;
+                colourCount += 1;
                 hasRed = false;
             }
                 
@@ -93,6 +94,7 @@ public class Drawing : MonoBehaviour
             if (hasBlue)
             {
                 blueMAT.material.color = Color.blue;
+                colourCount += 1;
                 hasBlue = false;
             }
                 
@@ -100,6 +102,7 @@ public class Drawing : MonoBehaviour
             if (hasGreen)
             {
                 greenMAT.material.color = Color.green;
+                colourCount += 1;
                 hasGreen = false;
             }
                 
@@ -107,6 +110,7 @@ public class Drawing : MonoBehaviour
             if (hasOrange)
             {
                 orangeMAT.material.color = new Color(1f, 0.5f, 0f);
+                colourCount += 1;
                 hasOrange = false;
             }
                 
@@ -114,6 +118,7 @@ public class Drawing : MonoBehaviour
             if (hasPurple)
             {
                 purpleMAT.material.color = new Color(0.5f, 0f, 0.5f);
+                colourCount += 1;
                 hasPurple = false;
             }
                 
@@ -121,6 +126,7 @@ public class Drawing : MonoBehaviour
             if (hasYellow)
             {
                 yellowMAT.material.color = Color.yellow;
+                colourCount += 1;
                 hasYellow = false;
             }
 
