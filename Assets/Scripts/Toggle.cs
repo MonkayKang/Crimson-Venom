@@ -48,7 +48,7 @@ public class Toggle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Trigger"))
         {
 
             if (isEnd) // If you collected all the pieces
