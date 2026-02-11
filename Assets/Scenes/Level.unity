@@ -2833,7 +2833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &44971812
 Transform:
   m_ObjectHideFlags: 0
@@ -10720,7 +10720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b040d2f734e060a4faf0e69b4048017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLight: {fileID: 167041138}
   minIntensity: 1
   maxIntensity: 2
   speed: 5
@@ -21055,11 +21054,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6277781697284688744, guid: 0f6fad699e3f82647a8dce785718a2be, type: 3}
   m_PrefabInstance: {fileID: 276263272}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &339945772 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 5518425693110903597, guid: 0f6fad699e3f82647a8dce785718a2be, type: 3}
-  m_PrefabInstance: {fileID: 276263272}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &339945776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21072,7 +21066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b040d2f734e060a4faf0e69b4048017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLight: {fileID: 339945772}
   minIntensity: 1
   maxIntensity: 2
   speed: 1
@@ -22769,7 +22762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -26075,7 +26068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -26373,7 +26366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6800427608160290824, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -37519,7 +37512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6800427608160290824, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -37826,7 +37819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -45629,7 +45622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b040d2f734e060a4faf0e69b4048017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLight: {fileID: 809938044}
   minIntensity: 0.25
   maxIntensity: 0.5
   speed: 1
@@ -50359,7 +50351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -53270,7 +53262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -58639,7 +58631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -77028,7 +77020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -77199,11 +77191,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6277781697284688744, guid: 0f6fad699e3f82647a8dce785718a2be, type: 3}
   m_PrefabInstance: {fileID: 1676009257}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &1502938553 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 5518425693110903597, guid: 0f6fad699e3f82647a8dce785718a2be, type: 3}
-  m_PrefabInstance: {fileID: 1676009257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1502938557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77216,7 +77203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b040d2f734e060a4faf0e69b4048017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLight: {fileID: 1502938553}
   minIntensity: 1
   maxIntensity: 2
   speed: 1
@@ -82271,7 +82257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -92961,7 +92947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -94409,7 +94395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -98804,7 +98790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -103241,7 +103227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLights
+      value: DressingRoomLightsstop
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}

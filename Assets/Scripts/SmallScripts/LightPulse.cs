@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LightPulse : MonoBehaviour
 {
-    public Light targetLight;
+    private Light targetLight;
 
     public static bool Powered; // Are the lights on
 
@@ -22,6 +22,18 @@ public class LightPulse : MonoBehaviour
 
     private bool isFlickering; // Tells the code that this light is flickering
     private Coroutine flickerRoutine; // start the courtine for flicker code
+
+    void Awake()
+    {
+        targetLight = GetComponent<Light>();
+
+        if (targetLight == null)
+        {
+            Debug.LogError("LightPulse requires a Light component!");
+            enabled = false;
+            return;
+        }
+    }
 
     void Start()
     {
