@@ -82,6 +82,7 @@ public class Lever : MonoBehaviour
 
     IEnumerator CurtainFailure()
     {
+        Player.STOP = true;
         yield return new WaitForSeconds(6.05f); // Wait 8.5 sec
         source.PlayOneShot(clip);
         if (UI != null)
@@ -124,5 +125,7 @@ public class Lever : MonoBehaviour
         {
             Lobjects.SetActive(false); // Turn it off
         }
+
+        Player.STOP = false;
     }
 }
