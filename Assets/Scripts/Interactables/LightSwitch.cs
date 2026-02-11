@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
@@ -7,6 +8,7 @@ public class LightSwitch : MonoBehaviour
     public GameObject Lights; // Put the Lights in here
 
     private bool inRange; // Is the player within interacting distance
+
 
     // Start is called before the first frame update
     void Start()

@@ -15,6 +15,12 @@ public class SparkEmmiter : MonoBehaviour
     public float minForce = 2f;
     public float maxForce = 6f;
 
+    // Audio
+    public AudioSource sparksSFX;
+    public AudioClip SparksClip;
+
+    public float pitchMin = 0.9f;
+    public float pitchMax = 1.1f;
     void Start()
     {
         StartCoroutine(BurstRoutine());
@@ -37,6 +43,8 @@ public class SparkEmmiter : MonoBehaviour
 
     void SpawnSpark()
     {
+        sparksSFX.pitch = Random.Range(pitchMin, pitchMax); // Slight pitch variation for realism
+        sparksSFX.PlayOneShot(SparksClip); // Play sparks Sfx
         GameObject spark = Instantiate(
             sparkPrefab,
             transform.position,

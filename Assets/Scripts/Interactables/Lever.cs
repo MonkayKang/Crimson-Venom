@@ -19,7 +19,9 @@ public class Lever : MonoBehaviour
 
     // Audio
     public AudioSource source;
+    public AudioSource LeverSource;
     public AudioClip clip;
+    public AudioClip LeverClip;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class Lever : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact") && Player.leverHOLDING) // if they interact while holding the lever
             {
+                LeverSource.PlayOneShot(LeverClip);
                 if (Lobjects != null)
                 {
                     Lobjects.SetActive(true);
