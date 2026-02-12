@@ -131,6 +131,6 @@ public class Lever : MonoBehaviour
         }
 
         Player.STOP = false;
-        taskUI.SetObjective("Restore the Power");
+        taskUI.SetObjective("Objective: Restore the Power");
     }
 }
