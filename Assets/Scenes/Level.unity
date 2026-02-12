@@ -1276,6 +1276,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1365,6 +1373,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2964,7 +2980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &44971812
 Transform:
   m_ObjectHideFlags: 0
@@ -3884,6 +3900,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5155,6 +5179,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5538,6 +5570,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6079,6 +6119,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8008,6 +8056,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8337,6 +8393,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13098,6 +13162,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13652,6 +13724,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14403,7 +14483,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14412,7 +14492,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 5
+  MaxDistance: 3
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -18176,6 +18256,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -18496,6 +18584,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -22391,6 +22487,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -23350,7 +23454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -24720,6 +24824,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -24876,6 +24988,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -26992,7 +27112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -27290,7 +27410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6800427608160290824, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -33024,6 +33144,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -34027,6 +34155,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -36480,6 +36616,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -37635,6 +37779,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -38901,7 +39053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6800427608160290824, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -39212,7 +39364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -41771,6 +41923,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -44472,6 +44632,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -44561,6 +44729,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -45235,6 +45411,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -47052,6 +47236,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -48809,6 +49001,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -49078,6 +49278,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -51801,7 +52009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -53332,6 +53540,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -53633,6 +53849,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -54744,7 +54968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -54904,6 +55128,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -55125,6 +55357,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -58878,6 +59118,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -59939,6 +60187,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -60163,7 +60419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -60417,6 +60673,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -60633,6 +60897,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -66277,6 +66549,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -67146,6 +67426,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -68157,6 +68445,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -68246,6 +68542,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -68706,6 +69010,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -71166,6 +71478,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -72031,6 +72351,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -73392,6 +73720,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -77350,6 +77686,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -78688,7 +79032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -78791,6 +79135,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -80268,6 +80620,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -83410,9 +83770,9 @@ MonoBehaviour:
   - {fileID: 239481096}
   - {fileID: 236671197}
   source: {fileID: 38818941}
-  LeverSource: {fileID: 0}
+  LeverSource: {fileID: 1620475485}
   clip: {fileID: 8300000, guid: 355af086f9ec3224e8c1a2355947cd8c, type: 3}
-  LeverClip: {fileID: 0}
+  LeverClip: {fileID: 8300000, guid: 2b0407c481146dc41865353c529f5b0a, type: 3}
 --- !u!82 &1620475485
 AudioSource:
   m_ObjectHideFlags: 0
@@ -84170,7 +84530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -84434,6 +84794,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -88711,6 +89079,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -89612,6 +89988,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -90760,6 +91144,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -92475,6 +92867,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -95245,7 +95645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -96506,6 +96906,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -96713,7 +97121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -100833,6 +101241,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -101124,7 +101540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -101152,6 +101568,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -102040,7 +102464,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e8df6423153b14c4c9c10c44a080ac90, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e862afe19b6fa748a977e40e08b4a02, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -105646,7 +106070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532577347193386320, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Name
-      value: DressingRoomLightsstop
+      value: STOPDressingRoomLights
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
@@ -106668,6 +107092,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -107153,6 +107585,14 @@ PrefabInstance:
       propertyPath: fullIntensity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -107242,6 +107682,14 @@ PrefabInstance:
     - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: fullIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: maxTimeBetweenFlickers
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484667406296863458, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
+      propertyPath: minTimeBetweenFlickers
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241644996699315214, guid: 970dbf2d12ade244da73cecedd7e09e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
