@@ -135,6 +135,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         if (STOP)
             return; // hard stop, nothing runs
 

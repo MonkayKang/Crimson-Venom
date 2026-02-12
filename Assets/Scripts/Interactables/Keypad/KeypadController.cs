@@ -21,6 +21,12 @@ public class KeypadController : MonoBehaviour
 
     int[] correctCode = { 1, 9, 8, 8 };
 
+
+    // Audio 
+    public AudioSource source;
+    public AudioClip ButtonClick;
+    public AudioClip WrongInput;
+
     void Start()
     {
         for (int i = 0; i < displaySlots.Length; i++)
@@ -62,6 +68,8 @@ public class KeypadController : MonoBehaviour
     {
         if (inputIndex >= 4) return;
 
+        source.PlayOneShot(ButtonClick); // Play the SFX
+
         enteredCode[inputIndex] = digit;
         displaySlots[inputIndex].material = digitMaterials[digit];
         inputIndex++;
@@ -77,6 +85,7 @@ public class KeypadController : MonoBehaviour
             if (enteredCode[i] != correctCode[i])
             {
                 ResetKeypad();
+                source.PlayOneShot(WrongInput); // Play the Wrong SFX
                 return;
             }
         }
@@ -98,7 +107,5 @@ public class KeypadController : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
             displaySlots[i].material = idleMaterial;
-
-        Debug.Log(" Wrong Code — Reset");
     }
 }
