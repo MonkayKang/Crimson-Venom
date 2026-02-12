@@ -6,25 +6,32 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public TextMeshProUGUI TaskText;
-    public float delay = 0.05f; // Delay between letters
+    public float delay = 0.05f;
 
     public static bool hasKey;
-
-    private string words;
+    public string words;
 
     void Start()
     {
-        hasKey = false; // For replayability
+        hasKey = false;
         words = "Objective: Find a way to escape the carnival";
-        StartCoroutine(TypeText(words, TaskText));
+        StartCoroutine(TypeText(words));
     }
 
-    private IEnumerator TypeText(string fullText, TextMeshProUGUI uiText)
+    public void SetObjective(string newText)
     {
-        uiText.text = "";
+        words = newText;
+        StopAllCoroutines();
+        StartCoroutine(TypeText(words));
+    }
+
+    private IEnumerator TypeText(string fullText)
+    {
+        TaskText.text = "";
+
         foreach (char c in fullText)
         {
-            uiText.text += c;
+            TaskText.text += c;
             yield return new WaitForSeconds(delay);
         }
     }
