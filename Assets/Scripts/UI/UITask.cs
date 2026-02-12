@@ -14,7 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         hasKey = false;
-        words = "Objective: Find a way to escape the carnival";
+        words = "Objective: Find a way to enter the carnival";
         StartCoroutine(TypeText(words));
     }
 

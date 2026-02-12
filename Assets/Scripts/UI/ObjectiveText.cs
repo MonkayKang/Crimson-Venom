@@ -9,7 +9,7 @@ public class ObjectiveText : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Trigger"))
         {
             taskUI.SetObjective(Text);
             Destroy(gameObject); // Destroy itself
