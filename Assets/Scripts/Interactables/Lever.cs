@@ -10,6 +10,7 @@ public class Lever : MonoBehaviour
     public GameObject DestroyOBJ; // destroy this object
     public GameObject UI; //Unload UI
     public static bool playerLEVER; // If the player has lever
+    public NewBehaviourScript taskUI;   // Find the UI Task Script
 
     private bool inrange; // Player in range
     public bool isPickup; // Resuing the same code
@@ -130,5 +131,6 @@ public class Lever : MonoBehaviour
         }
 
         Player.STOP = false;
+        taskUI.SetObjective("Restore the Power");
     }
 }
