@@ -51,7 +51,7 @@ public class KeypadController : MonoBehaviour
         if (!hit.collider.CompareTag("KeypadButton")) return;
 
         // How centered the hit is (smaller = more precise)
-        float centerTolerance = 0.01f;
+        float centerTolerance = 0.05f;
 
         Vector3 screenPos = cam.WorldToViewportPoint(hit.point);
         float distanceFromCenter =

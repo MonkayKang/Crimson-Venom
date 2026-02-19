@@ -7,22 +7,43 @@ public class OnStay : MonoBehaviour
     public GameObject ObjectONE;
     public GameObject ObjectTWO;
 
-    private bool isReversed = false; // A flip switch
+    private bool reversed = false;
+    private bool inRange = false;
 
     void Start()
     {
-        ObjectONE.SetActive(true); // Have the first object in
-        ObjectTWO.SetActive(false); // Have the second object out
+        ObjectONE.SetActive(true);
+        ObjectTWO.SetActive(false);
     }
 
-    private void OnTriggerStay(Collider other)
+    void Update()
     {
-        if (other.CompareTag("Trigger") && Input.GetButtonDown("Interact")) // While the player is inside and press "e"
+        if (inRange && Input.GetButtonDown("Interact"))
         {
-            isReversed = !isReversed; // flip state
+            reversed = !reversed;
 
-            ObjectONE.SetActive(isReversed); // ON or OFF
-            ObjectTWO.SetActive(!isReversed); // ON or OFF
+            ObjectONE.SetActive(!reversed);
+            ObjectTWO.SetActive(reversed);
+            Player.STOP = reversed;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Trigger"))
+            inRange = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Trigger"))
+        {
+            inRange = false;
+            reversed = false;
+
+            ObjectONE.SetActive(true);
+            ObjectTWO.SetActive(false);
+            Player.STOP = false;
         }
     }
 }
