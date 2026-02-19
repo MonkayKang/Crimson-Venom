@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject Gadget; // The object that will appear and re-appear (Selections)
     public GameObject LeverItem; // The hand held lever
 
+
     // Audio
     public AudioSource source;
     public AudioSource source2;
