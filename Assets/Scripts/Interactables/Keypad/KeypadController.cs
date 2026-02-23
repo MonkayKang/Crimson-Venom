@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class KeypadController : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class KeypadController : MonoBehaviour
     public GameObject destroyOBJ; // If we want to remove a door
 
     // ATTACH TO PLAYER OR CAMERA
-    public Camera cam;
+    public CinemachineVirtualCamera virtualCam; // Virtual Cam reference
     public float interactDistance = 3f;
 
     public Material[] digitMaterials; // index 0–9
@@ -21,14 +22,17 @@ public class KeypadController : MonoBehaviour
 
     int[] correctCode = { 1, 9, 8, 8 };
 
-
     // Audio 
     public AudioSource source;
     public AudioClip ButtonClick;
     public AudioClip WrongInput;
 
+    Camera mainCam; // The real camera used for raycasting
+
     void Start()
     {
+        mainCam = Camera.main; // Get the real camera (with CinemachineBrain)
+
         for (int i = 0; i < displaySlots.Length; i++)
         {
             displaySlots[i].material = new Material(idleMaterial);
@@ -45,15 +49,17 @@ public class KeypadController : MonoBehaviour
 
     void TryPressButton()
     {
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+        // Always raycast from the MAIN camera
+        Ray ray = mainCam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+
         if (!Physics.Raycast(ray, out RaycastHit hit, interactDistance)) return;
 
         if (!hit.collider.CompareTag("KeypadButton")) return;
 
         // How centered the hit is (smaller = more precise)
-        float centerTolerance = 0.05f;
+        float centerTolerance = 0.5f;
 
-        Vector3 screenPos = cam.WorldToViewportPoint(hit.point);
+        Vector3 screenPos = mainCam.WorldToViewportPoint(hit.point);
         float distanceFromCenter =
             Vector2.Distance(new Vector2(0.5f, 0.5f),
                              new Vector2(screenPos.x, screenPos.y));
@@ -92,13 +98,11 @@ public class KeypadController : MonoBehaviour
 
         lights.SetActive(true); // Turn the lights on
 
-        if (destroyOBJ != null) 
+        if (destroyOBJ != null)
             Destroy(destroyOBJ); // Destroy the Object
-
 
         Debug.Log(" Correct Code!");
         // unlock door / trigger event
-
     }
 
     void ResetKeypad()

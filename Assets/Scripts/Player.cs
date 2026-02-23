@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.Image;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
+
     // Game objects
     private GameObject Flashlight; // The world pickup
     public GameObject ItemFlashlight; // The one the player holds (Aka the one in their inventory)
@@ -138,7 +140,12 @@ public class Player : MonoBehaviour
     {
 
         if (STOP)
+        {
+            controller.Move(Vector3.zero); // Player Doesnt Move
+            velocity.y = 0f; // Player Stops from "flying"
+
             return; // hard stop, nothing runs
+        }
 
         if (timeSTOP)
             {
