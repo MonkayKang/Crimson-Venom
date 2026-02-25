@@ -47,16 +47,9 @@ public class OnStay : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        /*  if (other.CompareTag("Trigger"))
-         {
-             inRange = false;
-             reversed = false;
-
-             // ObjectONE.SetActive(true);
-             ObjectONE.SetActive(false);
-             playerMesh.enabled = true;
-             PlayerCapsuleCollider.enabled = true;
-             Player.STOP = false;
-          */
+        if (other.CompareTag("Trigger"))
+        {
+            inRange = false;
+        }
     }
 }
