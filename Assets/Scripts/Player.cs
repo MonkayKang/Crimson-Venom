@@ -32,19 +32,6 @@ public class Player : MonoBehaviour
     public float stepDelay = 0.5f; // delay between steps
     public float stepTimer; // How long they walked
 
-    //UI
-    public Sprite flashlightOffSprite;  // Sprite when flashlight is off
-    public Sprite flashlightOnSprite;   // Sprite when flashlight is on
-
-    // Inventory UI
-    public Sprite blankUI; // the blank UI
-    public Sprite flashlightUI; // The flashlight in that blank
-    public Sprite gadgetUI; // The Gadget in the that blank
-    public Sprite leverUI; // The lever UI 
-
-    public Image firstSLOT; // First Inventory spot UI
-    public Image secondSLOT; // Secondary Inventory spot UI
-    public Image thirdSLOT; // Third Inventory spot UI
 
     // Movement settings
     public float speed = 5f;
@@ -65,7 +52,6 @@ public class Player : MonoBehaviour
     private bool hasFlashlight = false;
     public static bool hasGadget = false;
     private bool isOn = false;
-    private bool nearDart = false;
     public static bool gadgetON;
 
     private bool isCrouching = false;
@@ -99,12 +85,6 @@ public class Player : MonoBehaviour
     {
         // Make time continue 
         timeSTOP = false;
-
-        // Both UI's will be blank
-        firstSLOT.sprite = blankUI;
-        secondSLOT.sprite = blankUI;
-        thirdSLOT.sprite = blankUI;
-
 
         GadgetANIM = false;
         controller = GetComponent<CharacterController>();
@@ -162,32 +142,6 @@ public class Player : MonoBehaviour
                 Time.timeScale = 1f; // if Timestop is false, then time will continue
             }
 
-
-            // UI will change if they have the objects
-            if (hasFlashlight)
-            {
-                firstSLOT.sprite = flashlightUI;
-            }
-
-            if (hasGadget)
-            {
-                secondSLOT.sprite = gadgetUI;
-            }
-
-            if (Lever.playerLEVER)
-            {
-                thirdSLOT.sprite = leverUI;
-            }
-
-            if (!Lever.playerLEVER)
-            {
-                thirdSLOT.sprite = blankUI;
-            }
-
-            // Slot Sizes
-            RectTransform slotTransform = firstSLOT.GetComponent<RectTransform>(); // Gets the size of the image
-            RectTransform slotTransform2 = secondSLOT.GetComponent<RectTransform>(); // Gets the size of the image
-            RectTransform slotTransform3 = thirdSLOT.GetComponent<RectTransform>(); // Gets the size of the image
 
             // Check if player is moving (on ground and not zero velocity)
             // bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
@@ -338,12 +292,8 @@ public class Player : MonoBehaviour
                 Pickup();
             }
 
-            if (nearDart)
-            {
-                Pickup();
-            }
 
-            if (Input.GetButtonDown("Flashlight") && hasFlashlight) // Flashlight 
+            if (Input.GetKeyDown(KeyCode.Alpha1) && hasFlashlight) // Flashlight 
             {
                 isOn = !isOn; // The bool of which, Is it on or not
 
@@ -351,17 +301,13 @@ public class Player : MonoBehaviour
                 if (isOn)
                 {
                     gadgetON = false;
-                    slotTransform.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase 
                     Gadget.SetActive(false); // The gadget is off
                     LeverItem.SetActive(false); // The lever is off
                     leverHOLDING = false; // Not holding lever
-                    slotTransform2.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
-                    slotTransform3.sizeDelta = new Vector2(250f, 250f); // SecondSlot image size is decrease
                     source.PlayOneShot(clip1); // On SFX
                 }
                 else
                 {
-                    slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
                                                                        // firstSlot image size is return back
                     source.PlayOneShot(clip2); // Off SFX
                 }
@@ -369,9 +315,6 @@ public class Player : MonoBehaviour
 
             if (Input.GetButtonDown("Square") && hasGadget || gadgetON)
             {
-                slotTransform2.sizeDelta = new Vector2(320f, 320f); // secondSlot image size is increase 
-                slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
-                slotTransform3.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
                 ItemFlashlight.SetActive(false); // Gadget
                 Gadget.SetActive(true);
                 LeverItem.SetActive(false); // The lever is off
@@ -379,12 +322,9 @@ public class Player : MonoBehaviour
                 leverHOLDING = false; // Is not holding lever
             }
 
-            if (Input.GetButtonDown("Triangle") && Lever.playerLEVER)  // Lever
+            if (Input.GetKeyDown(KeyCode.Alpha2) && Lever.playerLEVER)  // Lever
             {
                 gadgetON = false;
-                slotTransform2.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is decrease
-                slotTransform.sizeDelta = new Vector2(250f, 250f); // firstSlot image size is Decrease
-                slotTransform3.sizeDelta = new Vector2(320f, 320f); // firstSlot image size is increase
                 ItemFlashlight.SetActive(false);
                 Gadget.SetActive(false);
                 if (Lever.playerLEVER == true)
@@ -449,6 +389,10 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact") && Flashlight != null)
         {
+            ItemHolding.HasFirstItem = true; // For UI;
+
+
+
             source.PlayOneShot(clip3);
             hasFlashlight = true; // Player has Flashlight
 

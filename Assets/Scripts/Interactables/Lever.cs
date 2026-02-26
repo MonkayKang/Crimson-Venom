@@ -49,6 +49,9 @@ public class Lever : MonoBehaviour
 
         if (inrange && isPickup && Input.GetButtonDown("Interact")) // If the player is in range and the lever is a pick up object
         {
+            ItemHolding.HasSecondItem = true; // UI Purpose
+
+
                 Lobjects.SetActive(true);
                 Uobjects1.SetActive(false);
                 Uobjects2.SetActive(false);
@@ -119,9 +122,6 @@ public class Lever : MonoBehaviour
         if (playerScript != null)
         {
             playerScript.LeverItem.SetActive(false);
-            playerScript.thirdSLOT.sprite = playerScript.blankUI;
-            RectTransform slotTransform3 = playerScript.thirdSLOT.GetComponent<RectTransform>();
-            slotTransform3.sizeDelta = new Vector2(250f, 250f);
         }
         yield return new WaitForSeconds(2.52f); // Wait 3 sec
 
