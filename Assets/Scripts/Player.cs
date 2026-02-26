@@ -127,21 +127,6 @@ public class Player : MonoBehaviour
             return; // hard stop, nothing runs
         }
 
-        if (timeSTOP)
-            {
-                Time.timeScale = 0f; // if Timestop is true, then time will stop
-                if (Input.GetButtonDown("Interact"))
-                {
-                    // GameObject.Find("---ZOOMUI---").SetActive(false);
-                    // GameObject.Find("---ZOOMUIBACKUP---").SetActive(false);
-                    timeSTOP = false; // Time continues
-                }
-            }
-            if (!timeSTOP)
-            {
-                Time.timeScale = 1f; // if Timestop is false, then time will continue
-            }
-
 
             // Check if player is moving (on ground and not zero velocity)
             // bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);

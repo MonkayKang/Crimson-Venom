@@ -61,7 +61,6 @@ public class Lever : MonoBehaviour
                 Destroy(DestroyOBJ); // get rid of it
             }
             StartCoroutine(Wait1Second());
-
         }
     }
 
