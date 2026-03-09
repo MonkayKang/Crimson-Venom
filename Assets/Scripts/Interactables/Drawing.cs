@@ -37,8 +37,6 @@ public class Drawing : MonoBehaviour
     public GameObject LoadObject; // The object to be loaded
     public GameObject UnloadObject; // The object to be unloaded
 
-    public GameObject Timeline;
-
     public AudioSource source;
     public AudioClip clip;
 
@@ -65,7 +63,6 @@ public class Drawing : MonoBehaviour
         greenMAT.material.color = Color.white;
 
         LoadObject.SetActive(false);
-        Timeline.SetActive(false);
         colourCount = 0;
     }
 
@@ -77,9 +74,9 @@ public class Drawing : MonoBehaviour
             LoadObject.SetActive(true);
             UnloadObject.SetActive(false);
         }
+
+
         
-        if (colourCount >= 6)
-            Timeline.SetActive(true);
 
         if (inRange && Input.GetButtonDown("Interact"))
         {
