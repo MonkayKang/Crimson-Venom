@@ -5,6 +5,7 @@ using UnityEngine;
 public class LockedDoor : MonoBehaviour // SAME AS INTERACTABLES BUT WITH A LOCKED DOOR
 {
     private bool inRadius;
+    public bool dontDestroy; // For certain properties
     public GameObject LockUIpopup;
     public GameObject UnlockUIpopup;
 
@@ -29,9 +30,13 @@ public class LockedDoor : MonoBehaviour // SAME AS INTERACTABLES BUT WITH A LOCK
             UnlockUIpopup.SetActive(true); // The UI is ON
             if (Input.GetButtonDown("Interact"))
             {
-                NewBehaviourScript.hasKey = false;
-                source.PlayOneShot(UnlockSFX);
-                Destroy(gameObject);
+                if (!dontDestroy)
+                {
+                    NewBehaviourScript.hasKey = false;
+                    source.PlayOneShot(UnlockSFX);
+                    Destroy(gameObject);
+                }
+                    
             }
         }
         else if (inRadius) // This will appear when there is no Key

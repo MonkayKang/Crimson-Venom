@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject ItemFlashlight; // The one the player holds (Aka the one in their inventory)
     public GameObject Gadget; // The object that will appear and re-appear (Selections)
     public GameObject LeverItem; // The hand held lever
+    public ItemHolding itemHolding;
 
 
     // Audio
@@ -275,6 +276,7 @@ public class Player : MonoBehaviour
             if (nearFlashlight)
             {
                 Pickup();
+                itemHolding.ActivateOpenIventory(); // Show the inventory
             }
 
 

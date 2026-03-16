@@ -86,6 +86,11 @@ public class ItemHolding : MonoBehaviour
 
     }
 
+    public void ActivateOpenIventory()
+    {
+        StartCoroutine(OpenInventory());
+    }
+
     IEnumerator OpenInventory()
     {
         inventoryAnimator.SetBool("On", true);

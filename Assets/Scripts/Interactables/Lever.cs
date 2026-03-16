@@ -11,6 +11,7 @@ public class Lever : MonoBehaviour
     public GameObject UI; //Unload UI
     public static bool playerLEVER; // If the player has lever
     public NewBehaviourScript taskUI;   // Find the UI Task Script
+    public ItemHolding itemhold; // Find the Inventory UI;
 
     private bool inrange; // Player in range
     public bool isPickup; // Resuing the same code
@@ -38,6 +39,9 @@ public class Lever : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact") && Player.leverHOLDING) // if they interact while holding the lever
             {
+                ItemHolding.HasSecondItem = false; // UI Purpose
+                NewBehaviourScript.hasKey = false; // stops duplicates
+
                 LeverSource.PlayOneShot(LeverClip);
                 if (Lobjects != null)
                 {
@@ -50,8 +54,9 @@ public class Lever : MonoBehaviour
         if (inrange && isPickup && Input.GetButtonDown("Interact")) // If the player is in range and the lever is a pick up object
         {
             ItemHolding.HasSecondItem = true; // UI Purpose
+            itemhold.ActivateOpenIventory(); // Play the inventory animation
 
-
+            NewBehaviourScript.hasKey = true;
                 Lobjects.SetActive(true);
                 Uobjects1.SetActive(false);
                 Uobjects2.SetActive(false);
