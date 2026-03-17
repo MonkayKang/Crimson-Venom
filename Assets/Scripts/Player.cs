@@ -58,7 +58,6 @@ public class Player : MonoBehaviour
     private bool isCrouching = false;
 
     public static bool GadgetANIM; // Coutine
-    public static bool timeSTOP; // Did time stop OLD
 
     public static bool STOP; // Time Stop NEW;
 
@@ -84,8 +83,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        // Make time continue 
-        timeSTOP = false;
 
         GadgetANIM = false;
         controller = GetComponent<CharacterController>();
@@ -128,30 +125,10 @@ public class Player : MonoBehaviour
             return; // hard stop, nothing runs
         }
 
-
-            // Check if player is moving (on ground and not zero velocity)
-            // bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
-
             if (GadgetANIM)
             {
                 StartCoroutine(WaitfewSeconds());
             }
-
-            /* if (isMoving)
-            {
-                stepTimer -= Time.deltaTime;
-
-                if (stepTimer <= 0f)
-                {
-                    source2.pitch = Random.Range(pitchMin, pitchMax);
-                    source2.PlayOneShot(WalkingAudio);
-                    stepTimer = stepDelay;
-                }
-            } 
-            else
-            {
-                stepTimer = 0f; // reset timer when stopping
-            } */
 
             if (isOn)
             {
@@ -285,7 +262,6 @@ public class Player : MonoBehaviour
             if (nearFlashlight)
             {
                 Pickup();
-                itemHolding.ActivateOpenIventory(); // Show the inventory
             }
 
 
@@ -380,11 +356,11 @@ public class Player : MonoBehaviour
         }
 
     }
-
     public void Pickup()
     {
         if (Input.GetButtonDown("Interact") && Flashlight != null)
         {
+            itemHolding.ActivateOpenIventory(); // Show the inventory
             ItemHolding.HasFirstItem = true; // For UI;
 
 

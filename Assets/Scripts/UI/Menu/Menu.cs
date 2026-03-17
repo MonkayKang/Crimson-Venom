@@ -30,10 +30,15 @@ public class Menu : MonoBehaviour
         Player.STOP = (!isOn);
 
         if (!isOn)
-            Cursor.lockState = CursorLockMode.None;
+        {
+            Cursor.lockState = CursorLockMode.None; // Unlock the mouse
+            Cursor.visible = true; // Make it visible
+        }
+
         if (isOn)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked; // Lock the mouse
+            Cursor.visible = false; // Make it invisible
             ConstructionAnimation.SetBool("On", false);
         } 
     }

@@ -17,7 +17,6 @@ public class backupE : MonoBehaviour
         if (Input.GetButtonDown("Interact"))
         {
             obj.SetActive(false);
-            Player.timeSTOP = false;
         }
     }
 }

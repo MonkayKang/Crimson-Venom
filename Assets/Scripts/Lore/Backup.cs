@@ -49,7 +49,6 @@ public class Backup : MonoBehaviour
 
             readUI.enabled = true;
             readUI.sprite = imageSLOT;
-            Player.timeSTOP = true; // time has stopped
 
             Destroy(gameObject);
         }
