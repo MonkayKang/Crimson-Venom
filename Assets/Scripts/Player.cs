@@ -244,6 +244,15 @@ public class Player : MonoBehaviour
             {
                 stepTimer = 0f; // Reset timer when player stops moving
             }
+
+            // SPRINT BUTTON
+            if (Input.GetKey(KeyCode.LeftShift) && !isCrouching)
+            {
+                speed = 4f;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && !isCrouching)
+                speed = 3f;
+
             // Ground Check
 
             isGrounded = controller.isGrounded;
