@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
+    public GameObject SettingsMenu;
     private bool menuActivate;
 
     public ItemSlot[] itemSlots;     // normal items
@@ -47,4 +48,20 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].selectedShader.SetActive(false);
+            itemSlots[i].thisItemSelected = false;
+        }
+
+        for (int i = 0; i < keyItemSlots.Length; i++)
+        {
+            keyItemSlots[i].selectedShader.SetActive(false);
+            keyItemSlots[i].thisItemSelected = false;
+        }
+    }
+
 }
