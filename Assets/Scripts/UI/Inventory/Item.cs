@@ -5,37 +5,35 @@ using static Unity.VisualScripting.Member;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    private string itemName;
+    [SerializeField] private string itemName;
+    [SerializeField] private Sprite sprite;
 
-    [SerializeField]
-    private Sprite sprite;
+    public bool isKeyItem;
+    public bool dontDestroy;
 
     private InventoryManager inventoryManager;
 
-    public bool dontDestroy; // Certain Conditions
-    
-    // Audio
     private AudioSource source;
     public AudioClip pickSFX;
 
     private bool nearPlayer;
-    // Start is called before the first frame update
+
     void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-
-        // Find those names
         source = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (nearPlayer && Input.GetButtonDown("Interact"))
         {
-            inventoryManager.AddItem(itemName, sprite);
-            source.PlayOneShot(pickSFX); // Play the SFX
+            if (isKeyItem)
+                inventoryManager.AddKeyItem(itemName, sprite);
+            else
+                inventoryManager.AddItem(itemName, sprite);
+
+            source.PlayOneShot(pickSFX);
 
             if (!dontDestroy)
                 Destroy(gameObject);
@@ -45,16 +43,12 @@ public class Item : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
-        {
             nearPlayer = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("player"))
-        {
             nearPlayer = false;
-        }
     }
 }

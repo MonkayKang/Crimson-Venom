@@ -6,15 +6,10 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
     private bool menuActivate;
-    public ItemSlot[] itemSlots;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ItemSlot[] itemSlots;     // normal items
+    public ItemSlot[] keyItemSlots;  // key items
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -24,18 +19,8 @@ public class InventoryManager : MonoBehaviour
             InventoryMenu.SetActive(menuActivate);
             Time.timeScale = menuActivate ? 0 : 1;
 
-            if (menuActivate)
-            {
-                // Inventory OPEN 
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else
-            {
-                // Inventory CLOSED 
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
+            Cursor.lockState = menuActivate ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = menuActivate;
         }
     }
 
@@ -43,9 +28,21 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].isFull == false)
+            if (!itemSlots[i].isFull)
             {
                 itemSlots[i].AddItem(itemName, itemSprite);
+                return;
+            }
+        }
+    }
+
+    public void AddKeyItem(string itemName, Sprite itemSprite)
+    {
+        for (int i = 0; i < keyItemSlots.Length; i++)
+        {
+            if (!keyItemSlots[i].isFull)
+            {
+                keyItemSlots[i].AddItem(itemName, itemSprite);
                 return;
             }
         }

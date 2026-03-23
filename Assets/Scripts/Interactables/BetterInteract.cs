@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BetterInteract : MonoBehaviour
@@ -34,7 +35,8 @@ public class BetterInteract : MonoBehaviour
                 }
 
                 source.PlayOneShot(pickSFX);
-                Destroy(gameObject);
+
+                StartCoroutine(DelayDestroyed());
             }
         }
         else
@@ -57,5 +59,11 @@ public class BetterInteract : MonoBehaviour
         {
             inRadius = false;
         }
+    }
+
+    IEnumerator DelayDestroyed()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KeyItem : MonoBehaviour
+public class KeyItem1 : MonoBehaviour
 {
     public Image UI; // The UI it will effect
     public Sprite ImageReplace;
