@@ -5,8 +5,14 @@ using static Unity.VisualScripting.Member;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private string itemName;
-    [SerializeField] private Sprite sprite;
+    [SerializeField] 
+    private string itemName;
+
+    [SerializeField] 
+    private Sprite sprite;
+
+    [SerializeField]
+    private string itemDescription;
 
     public bool isKeyItem;
     public bool dontDestroy;
@@ -29,9 +35,9 @@ public class Item : MonoBehaviour
         if (nearPlayer && Input.GetButtonDown("Interact"))
         {
             if (isKeyItem)
-                inventoryManager.AddKeyItem(itemName, sprite);
+                inventoryManager.AddKeyItem(itemName, sprite, itemDescription);
             else
-                inventoryManager.AddItem(itemName, sprite);
+                inventoryManager.AddItem(itemName, sprite, itemDescription);
 
             source.PlayOneShot(pickSFX);
 

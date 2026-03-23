@@ -7,17 +7,23 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
-    // Item Data
+    // Item Data //
     public string itemName;
     public Sprite itemSprite;
     public bool isFull;
+    public string itemDescription;
 
-    // Item Slot
+    // Item Slot //
     [SerializeField]
     private Image itemImage;
 
     public GameObject selectedShader;
     public bool thisItemSelected;
+
+    // Item Description //
+    public Image itemDescriptionImage;
+    public TMP_Text itemDescriptionText;
+    public TMP_Text itemNameText;
 
     private InventoryManager inventorymanger;
 
@@ -27,10 +33,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
 
-    public void AddItem(string itemName, Sprite itemSprite)
+    public void AddItem(string itemName, Sprite itemSprite, string itemDescription)
     {
         this.itemName = itemName;
         this.itemSprite = itemSprite;
+        this.itemDescription = itemDescription;
         isFull = true;
 
         itemImage.sprite = itemSprite;
@@ -53,9 +60,12 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public void OnLeftClick()
     {
         inventorymanger.DeselectAllSlots();
-
         selectedShader.SetActive(true);
         thisItemSelected = true;
+
+        itemNameText.text = itemName; // set the item text to the name of it
+        itemDescriptionText.text = itemDescription; // set the item decription
+        itemDescriptionImage.sprite = itemSprite; // set the description sprite
     }
 
     public void OnRightClick()
