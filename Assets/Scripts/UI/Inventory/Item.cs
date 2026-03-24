@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
     public AudioClip pickSFX;
 
     private bool nearPlayer;
+    private bool onlyOnce;
 
     void Start()
     {
@@ -32,14 +33,15 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        if (nearPlayer && Input.GetButtonDown("Interact"))
+        if (nearPlayer && Input.GetButtonDown("Interact") && !onlyOnce)
         {
-            if (isKeyItem)
-                inventoryManager.AddKeyItem(itemName, sprite, itemDescription);
+            if (isKeyItem )
+                inventoryManager.AddKeyItem(itemName, sprite, itemDescription);      
             else
                 inventoryManager.AddItem(itemName, sprite, itemDescription);
 
             source.PlayOneShot(pickSFX);
+            onlyOnce = true; // prevents duplications
 
             if (!dontDestroy)
                 Destroy(gameObject);
