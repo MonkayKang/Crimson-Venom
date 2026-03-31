@@ -37,6 +37,27 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void RemoveItem(string itemName)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].isFull && itemSlots[i].itemName == itemName)
+            {
+                itemSlots[i].ClearSlot();
+                return;
+            }
+        }
+
+        for (int i = 0; i < keyItemSlots.Length; i++)
+        {
+            if (keyItemSlots[i].isFull && keyItemSlots[i].itemName == itemName)
+            {
+                keyItemSlots[i].ClearSlot();
+                return;
+            }
+        }
+    }
+
     public void AddKeyItem(string itemName, Sprite itemSprite, string itemDescription)
     {
         for (int i = 0; i < keyItemSlots.Length; i++)

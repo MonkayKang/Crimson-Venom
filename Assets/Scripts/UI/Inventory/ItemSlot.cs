@@ -44,6 +44,20 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         itemImage.enabled = true; // IMPORTANT
     }
 
+    public void ClearSlot()
+    {
+        itemName = "";
+        itemSprite = null;
+        itemDescription = "";
+        isFull = false;
+
+        itemImage.sprite = null;
+        itemImage.enabled = false;
+
+        selectedShader.SetActive(false);
+        thisItemSelected = false;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button== PointerEventData.InputButton.Left)
