@@ -34,7 +34,7 @@ public class LockedDoor : MonoBehaviour // SAME AS INTERACTABLES BUT WITH A LOCK
                 {
                     NewBehaviourScript.hasKey = false;
                     source.PlayOneShot(UnlockSFX);
-                    Destroy(gameObject);
+                    StartCoroutine(DelayedDestroyed());
                 }
                     
             }
@@ -64,5 +64,11 @@ public class LockedDoor : MonoBehaviour // SAME AS INTERACTABLES BUT WITH A LOCK
         {
             inRadius = false;
         }
+    }
+
+    IEnumerator DelayedDestroyed()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
     }
 }
